@@ -1,0 +1,57 @@
+/* Dealer Chip Top: 65px */
+
+#poker-room {
+    height:600px;
+    width:800px;
+    background-image:url("./images/bg.png");
+    position:absolute;
+    top:10px;
+    left:100px;
+    overflow:hidden;
+} 
+
+.chip-edge {
+    background-image:url('./images/chip-edge.png');
+    width:12px;
+    height:2px;
+    min-width:12px;
+    min-height:2px;
+    position:absolute;
+    top:65px;
+}
+
+.edge-1 {
+    background-color:#ff0000;   
+    left:363px;
+}
+
+.edge-2 {
+    background-color:#007c00;    
+    left:379px;
+}
+
+.edge-3 {
+    background-color:#0000ff;    
+    left:395px;
+}
+
+.edge-4 {
+    background-color:#551255;    
+    left:411px;
+}
+
+.edge-5 {
+    background-color:#ffff00;    
+    left:426px;
+}
+
+.chip-spot {
+    width:2px;
+    height:2px;
+    min-width:2px;
+    min-height:2px;
+    background-color:#d9d9d9;
+    position:absolute;
+    top:0px;
+    /* left:5px; */
+}
