@@ -1,5 +1,4 @@
 Okay, I'm trying to place the seats at the poker table, and I'm writing a script to calculate points and write out CSS, so I can easily change things, if for instance the center point of the table or size of the table image changes, or if we need more or less seats, etc.
-
 Trying to place the seats by putting in the x,y coordinates for each seat manually is a pain in the ass.
 
 So from the equation of an ellipse, I've got:
@@ -82,4 +81,5 @@ I recreated the table graphics yesterday and added a tray for the dealer chips. 
 
 Now I need to place the avatars/seats on the new table. The code I already have for placing the seats at angles should work fine, but I might need to adjust the code for shifting to a new center, and I need to calculate the mirror images in the Python program, not in JS. I'm going to keep all of the variables in a settings file, to quicly experiment with different sizes, etc. Also, instead of writing a bunch of CSS files, I'm just going to build up a dict of all of the CSS rules and then write them all out at once.
 
-
+https://shkspr.mobi/blog/2013/03/inkscape-cropping-svg-files-on-the-command-line/
+inkscape --verb=FitCanvasToDrawing --verb=FileSave --verb=FileClose *.svg
