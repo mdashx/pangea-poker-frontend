@@ -5,3 +5,4 @@ mockup-old/
 *.*~
 *~
 *.pyc
+tmp*

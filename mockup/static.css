@@ -1,13 +1,19 @@
 /* Dealer Chip Top: 65px */
 
+/* Settings wheel vector from Flaticon - flaticon.com */
+
 #poker-room {
     height:600px;
     width:800px;
-    background-image:url("./images/bg.png");
+    /* background-image:url("./images/bg.png"); */
     position:absolute;
     top:10px;
     left:100px;
     overflow:hidden;
+    border-width:1px;
+    border-color:#000;
+    border-style:solid;
+    font-family:Helvetica, Arial, sans-serif;
 } 
 
 .player-info {
@@ -16,9 +22,9 @@
     width:110px;
     max-width:110px;
     overflow:hidden;
-    /* background-color:#bcbcbc; */
-    background-color:#162C55;
-    background-image:url('./avatar-default.png');
+    background-color:#bcbcbc;
+    /* background-color:#909AFF; */
+    background-image:url('./images/avatar-default.png');
     border-style:solid;
     border-width:2px;
     border-radius:25px;
@@ -27,6 +33,36 @@
     -webkit-box-shadow: -4px 6px 32px -6px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 6px 32px -6px rgba(0,0,0,0.75);
     box-shadow: -4px 6px 32px -6px rgba(0,0,0,0.75);
+    z-index:2;
+}
+
+.down1 {
+    position:absolute;
+    top:35px;
+    left:5px
+}
+
+.down2 {
+    position:absolute;
+    top:35px;
+    left:20px;
+}
+
+.player-status {
+    position:absolute;
+    background-color:#000;
+    opacity:0.7;
+    height:35px;
+    width:100%;
+    top:49px;
+    text-align:center;
+    font-size:14px;
+    color:#fff;
+    font-family:Helvetica, Arial, sans-serif
+}
+
+.player-amount {
+    font-weight:bold;
 }
 
 .chip-edge {
@@ -93,4 +129,448 @@
 
 .faceup {
     position:absolute;
+}
+
+.btn {
+background: #ef4052; /* Old browsers */
+background: -moz-linear-gradient(top,  #ef4052 0%, #b70012 50%, #ef4052 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef4052), color-stop(50%,#b70012), color-stop(100%,#ef4052)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #ef4052 0%,#b70012 50%,#ef4052 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #ef4052 0%,#b70012 50%,#ef4052 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #ef4052 0%,#b70012 50%,#ef4052 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #ef4052 0%,#b70012 50%,#ef4052 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4052', endColorstr='#ef4052',GradientType=0 ); /* IE6-9 */
+}
+
+.btn {
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  border-style:solid;
+  border-color:#000;
+  border-width:1px;
+  font-family:Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  text-align:center;
+  min-width:100px;    
+  min-height:50px;
+  line-height:50px;
+  valign:middle;
+}
+
+.btn:hover {
+    background: #00c914; /* Old browsers */
+    background: -moz-linear-gradient(top,  #00c914 0%, #007709 50%, #00c914 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00c914), color-stop(50%,#007709), color-stop(100%,#00c914)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #00c914 0%,#007709 50%,#00c914 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #00c914 0%,#007709 50%,#00c914 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #00c914 0%,#007709 50%,#00c914 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #00c914 0%,#007709 50%,#00c914 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c914', endColorstr='#00c914',GradientType=0 ); /* IE6-9 */
+    text-decoration: none;
+    cursor:hand;
+}
+
+#fold {
+    position:absolute;
+    top:532px;
+    left:420px;
+}
+
+#check {
+    position:absolute;
+    top:532px;
+    left:540px;
+}
+
+#bet {
+    position:absolute;
+    top:532px;
+    left:660px;
+}
+
+#autocontrols {
+    position:absolute;
+    top:458px;
+    left:405px;
+    color:#fff;
+}
+
+/* http://www.paulund.co.uk/style-checkboxes-with-css */
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+#autocontrols label {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    /* top: 6px; */
+    /* left: 8px; */
+    z-index: 1;
+    background: #111;
+    -webkit-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+}
+
+#autocontrols input[type=checkbox]:checked + label {
+    background: #26ca28;
+}
+
+#label1 {
+    top: 6px;
+    left: 9px;
+}
+
+#label2 {
+    top: 27px;
+    left: 9px;
+}
+
+#label3 {
+    top: 46px;
+    left: 9px;
+}
+
+#bet_slider {
+    position:absolute;
+    width:195px;
+    top:491px;
+    left:560px;
+}
+
+#bet-label {
+    position:absolute;
+    top:467px;
+    left:608px;
+    font-weight:bold;
+    color:#fff;
+}
+
+#bet-amount {
+    position:absolute;
+    top:466px;
+    left:706px;
+    width:50px;
+    text-align:right;
+    font-weight:bold;
+}
+
+.dealerbutton {
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    border-color:#222;
+    background: #eef;
+    position:absolute;
+    font-size:11px;
+    font-weight:bold;
+    color:#D20101;
+    padding-top:2px;
+    text-align:center;
+}
+
+.chip {
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    /* background: #0000ff; */
+    background-image: url('./images/chip.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    position:absolute;
+}
+
+.chip1 {background-color:#ff0000;}
+.chip2 {background-color:#0000ff;}
+.chip3 {background-color:#007c00;}
+.chip4 {background-color:#551255;}
+.chip5 {background-color:#00B1D0;}
+
+#testchip {
+    position:absolute;
+    top:300px;
+    left:300px;
+}
+
+#testchip2 {
+    position:absolute;
+    top:298px;
+    left:300px;
+}
+
+#testchip3 {
+    position:absolute;
+    top:296px;
+    left:300px;
+}
+
+#infobox {
+    background:#000;
+    opacity:0.7;
+    height:200px;
+    width:300px;
+    position:absolute;
+    top:460px;
+    left:20px;
+    border-style:solid;
+    border-width:2px;
+    border-radius:25px;
+    border-color:#CAC7FF;
+    overflow:hidden;
+}
+
+#gameinfo {
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    color:#fff;
+    font-weight:bold;
+}
+
+#chatbox {
+    height:85px;
+    width:295px;
+    position:absolute;
+    top:30px;
+    padding-left:3px;
+    color:#fff;
+    font-family:Helvetica, Arial, sans-serif;
+    line-height:14px;
+    font-size:12px;
+    overflow-y:scroll;
+    /* background:#00ff00; */
+}
+
+#chat-input{
+    height:21px;
+    width:300px;
+    position:absolute;
+    top:117px;
+    /* background:#0000ff; */
+}
+
+#chat-input input[type=text] {
+    width:240px;
+}
+
+#submitchat {
+    width:28px;
+    height:20px;
+    position:absolute;
+    top:0px;
+    left:241px;
+    -webkit-border-radius: 3;
+    -moz-border-radius: 3;
+    border-radius: 3px;
+    background:#fff;
+    text-align:center;
+    line-height:20px;
+    color:#000;
+}
+
+#submitchat:hover {
+    cursor:hand;
+}
+
+#settings {
+    width:28px;
+    height:20px;
+    position:absolute;
+    top:0px;
+    left:271px;
+    -webkit-border-radius: 3;
+    -moz-border-radius: 3;
+    border-radius: 3px;
+    background:#fff;
+    text-align:center;
+    line-height:20px;
+    color:#000;
+}
+
+#settings:hover {
+    cursor:hand;
+}
+
+#pot-amount {
+    position:absolute;
+    left:340px;
+    top:20px;
+    width:120px;
+    height:25px;
+    background:#ff0000;
+    line-height:25px;
+    text-align:center;
+    color:#fff;
+    font-weight:bold;
+    border-style:solid;
+    border-width:2px;
+    border-radius:25px;
+    border-color:#CAC7FF;
+    background:#000;
+    opacity:0.7;    
+}
+
+.stack-label {
+    width:110px;
+    position:absolute;
+    z-index:1;
+}
+
+.stack-label span {
+    background:#E3EDA6;
+    padding:0px 3px;
+    font-size:12px;
+    font-family:Helvetica, Arial, sans-serif
+}
+
+.hide {
+    visibility:hidden;
+}
+
+.action {
+    position:absolute;
+    top:18px;
+    width:110px;
+    background-color:#000;
+    z-index:5;
+    text-align:center;
+    color:#fff;
+    font-size:20px;
+}
+
+#player-total {
+    position:absolute;
+    width:140px;
+    text-align:right;
+    left:0px;
+}
+
+#tocall {
+    position:absolute;
+    width:140px;
+    left:160px;
+    text-align:left;
+}
+
+#seat1button {
+    top:105px;
+    left:607px;
+}
+
+#seat2button {
+    top:197px;
+    left:670px;
+}
+
+#seat3button {
+    top:249px;
+    left:670px;
+}
+
+#seat4button {
+    top:342px;
+    left:525px;
+}
+
+#seat5button {
+    top:354px;
+    left:338px;
+}
+
+#seat6button {
+    top:342px;
+    left:265px;
+}
+
+#seat7button {
+    top:249px;
+    left:120px;
+}
+
+#seat8button {
+    top:197px;
+    left:120px;
+}
+
+#seat9button {
+    top:105px;
+    left:183px;
+}
+
+.potchip {
+    z-index:5;
+}
+
+#side-pots {
+    position:absolute;
+    left:660px;
+    top:5px;
+    width:160px;
+    height:80px;
+    background:#ff0000;
+    line-height:25px;
+    /* text-align:center; */
+    color:#fff;
+    font-size:12px;
+    line-height:14px;
+    padding-left:15px;
+    padding-top:5px;
+    border-style:solid;
+    border-width:2px;
+    border-radius:25px;
+    border-color:#CAC7FF;
+    background:#000;
+    opacity:0.7;    
+    overflow-y:scroll;
+}
+
+#side-pots ol {
+    margin-top:3px;
+    padding-left:23px;
+}
+
+#timer {
+    width: 70px;
+    height: 70px;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+    background: #D50000;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,1);
+    position:absolute;
+    top:375;
+    left:700;
+    line-height:72px;
+    color:#FFF;
+    text-align:center;
+    font-size:47px;
+}
+
+#gametype {
+    margin:3 5;
+    color:#fff;
+    font-family:Helvetica, Arial, sans-serif;
+    line-height:14px;
+    font-size:12px;
 }

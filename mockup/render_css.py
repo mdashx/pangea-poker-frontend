@@ -10,8 +10,11 @@ def render_css(cssrules):
             newcss += "  %s:%s;\n" % (prop, cssrules[selector][prop])
         newcss += "}\n"
         css += newcss
-    with open('pangeapoker.css', 'w') as fh2:
-        fh2.write(css)
+    with open('seat-gradients.css', 'r') as fh2:
+        bgs = fh2.read()
+        css += bgs
+    with open('pangeapoker.css', 'w') as fh3:
+        fh3.write(css)
 
 def add_rule(selector, prop, val, cssrules):
     if selector not in cssrules.keys():
@@ -49,6 +52,9 @@ def seat_coordinates(seats, cssrules):
                                          S.seat_attrs['height'],
                                          S.seat_attrs['width'],
                                          S.ellipse['center'])
+        if seat == 4:
+            seat_top -= 10
+        
         return (seat_left, seat_top)
 
     def center_seat(seat):
@@ -83,7 +89,8 @@ def seat_coordinates(seats, cssrules):
         selector = '#seat-%s' % (seat)
         add_rule(selector, 'left', str(seat_left) + 'px', cssrules)
         add_rule(selector, 'top', str(seat_top) + 'px', cssrules)
-
+    return seat_coords
+        
 def seat_sizes(seats, cssrules):
     for seat in seats:
         selector = '#seat-%s' % (seat)
@@ -102,16 +109,33 @@ def player_cards(seats, cssrules):
     add_rule(card1, 'left', S.c1left, cssrules)
     add_rule(card2, 'top', S.c2top, cssrules)
     add_rule(card2, 'left', S.c2left, cssrules)
-    
-    # for seat in seats:
-    #     card1 = 'seat%scard1' % (seat)
-    #     card2 = 'seat%scard2' % (seat)
-        
-    
+
+def stack_labels(seats, seat_coords, cssrules):
+    seat_pos = ['top', 'top', 'bottom', 'bottom', 'bottom',
+                'bottom', 'bottom', 'top', 'top']
+    for seat in seats:
+        position = seat_pos[seat-1]
+        if position == 'top':
+            top = seat_coords[seat][1] + 83
+        else:
+            top = seat_coords[seat][1] - 12
+        left = seat_coords[seat][0]
+        selector = '#stack%s' % (seat)
+        add_rule(selector, 'top', top, cssrules)
+        add_rule(selector, 'left', left, cssrules)
+
+def bg_image(cssrules):
+    selector = '#poker-room'
+    image = S.bgimage
+    val = "url('%s')" % image
+    add_rule(selector, 'background-image', val, cssrules)
+            
 cssrules = OrderedDict()
 seats = range(10)[1:]
-seat_coordinates(seats, cssrules)
+bg_image(cssrules)
+seat_coords = seat_coordinates(seats, cssrules)
 seat_sizes(seats, cssrules)
 player_cards(seats, cssrules)
+stack_labels(seats, seat_coords, cssrules)
 render_css(cssrules)
 

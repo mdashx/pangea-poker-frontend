@@ -1,4 +1,4 @@
-Okay, I'm trying to place the seats at the poker table, and I'm writing a script to calculate points and write out CSS, so I can easily change things, if for instance the center point of the table or size of the table image changes, or if we need more or less seats, etc.
+Okay, I'm trying to place the seats at the poker table, and I'm writing a script to calculate points and write out CSS, so I can easily change things, if for instance the center point of the table or nnsize of the table image changes, or if we need more or less seats, etc.
 Trying to place the seats by putting in the x,y coordinates for each seat manually is a pain in the ass.
 
 So from the equation of an ellipse, I've got:
@@ -48,7 +48,6 @@ Actually, that might be more complicated than I need, since I'm using fixed size
 
 https://code.google.com/p/vectorized-playing-cards/
 
-
 convert -background none 10C.svg 10C.png
 convert 10C.png -trim +repage 10C.png
 convert 10C.png -resize 100x 10C.png
@@ -83,3 +82,76 @@ Now I need to place the avatars/seats on the new table. The code I already have 
 
 https://shkspr.mobi/blog/2013/03/inkscape-cropping-svg-files-on-the-command-line/
 inkscape --verb=FitCanvasToDrawing --verb=FileSave --verb=FileClose *.svg
+
+## Mon Nov 24 09:38:06 EST 2014
+
+checked in the code to render tablecards and faceup cards. Next I'm going to add the status bar and also the player's name.
+
+Status bar/name/amount looks good. Faceup cards are on top of status. Now to make facedown cards underneath status and remove facedown cards before showing faceup cards.
+
+All good, now I need to add the avatars back in and I'll be caught up with where I was with the original table design.
+
+## Tue Nov 25 16:21:05 EST 2014
+
+To Do:
+- positions / JS for player chips, dealer button, pot chips, side pot
+- action timer
+- muck / show cards prompt
+- settings window
+
+--- 
+
+Not part of the design:
+- get text from chat input
+- bet amount slider based on limit / player stack
+
+# Mon Dec  1 09:38:01 EST 2014
+
+Ok, getting back to it after a break for Thanksgiving and a chess tournament. I'm gonna look back at what posted in Slack to see what I need to work on, plus I know I need to write a script to crop, resize, and convert all of the card images. Also I'd like to produce a four-color deck if possible. Oh yea, the settings window.
+
+Pot chips, settings window, card images
+
+
+From Slack:
+
+"""
+Here's  quick update. Still some details to finish up... need to make a pop up window for player options (use default avatars, hide player chat, use green table felt instead of black, etc.), need to add the pot and split pot chip positions, need to get all of the full resolution card images
+Feedback welcome!
+top left will say the game limit, top right will show a timer on the players turn. On other player's turns, the timer will show in the action bar - where it says "Bet", "Fold", etc.
+Chip colors are just done with a div bg color, so chips can be any color, I'll make plenty of preset denominations to keep the stacks from getting to high
+Oh, and I have a Dealer Button, I just forgot to put it in this screenshot 
+
+---
+
+noashh 6:49 PM looks good, maybe some buttons with pre set bet amounts? So when I want to bet 50 I can just click on "50" button
+hobofife 12:07 AM yea, the slider will automatically snap to preset intervals, depending on the big blind / limit and the player's chip stack
+hobofife 12:20 AM Gonna change it to all helvetica/arial/sans serif fonts too 
+"""
+
+First the card images, then the dealer button, then the pot chips.
+
+---
+
+Imagemagick and Inkscape commands:
+
+convert -background none 10C.svg 10C.png
+convert 10C.png -trim +repage 10C.png
+convert 10C.png -resize 100x 10C.png
+
+https://shkspr.mobi/blog/2013/03/inkscape-cropping-svg-files-on-the-command-line/
+
+inkscape --verb=FitCanvasToDrawing --verb=FileSave --verb=FileClose *.svg
+
+Maybe I should resize the svg and then convert to png. It doesn't matter too much since I'm only scaling down, not up, but just for the sake of doing it properly.
+
+^^^ **Nope! Converting SVG files with ImageMagick doesn't really work. I could do it with another inkscape command, but just gonna resize the PNG files, since the original is large enough for what I need.**
+
+I need filenames for the different cards... size1, size2, 4 color...
+
+Ok, maybe make two different directories, one for the normal deck, one for the 4 color deck, and give the larger cards a suffix... 7H-150.png. Okay, doing all cards filenames with the width as a suffix.
+
+1. inkscape fit canvas for all cards
+2. convert resize
+3. convert to png
+
+All good on the cards. Added color to the card backs to make the player name and chip stack more readable.

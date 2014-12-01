@@ -1,0 +1,90 @@
+#seat-1 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-2 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-3 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-4 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-5 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-6 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-7 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-8 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
+#seat-9 {
+background: #616f91; /* Old browsers */
+background-image:url('./images/avatar-default.png');
+background-image:url('./images/avatar-default.png'), -moz-linear-gradient(45deg,  #ffd8d8 0%, #bcbcbc 100%); /* FF3.6+ */
+background-image:url('./images/avatar-default.png'), -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffd8d8), color-stop(100%,#bcbcbc)); /* Chrome,Safari4+ */
+background-image:url('./images/avatar-default.png'), -webkit-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Chrome10+,Safari5.1+ */
+background-image:url('./images/avatar-default.png'), -o-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* Opera 11.10+ */
+background-image:url('./images/avatar-default.png'), -ms-linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* IE10+ */
+background-image:url('./images/avatar-default.png'), linear-gradient(45deg,  #ffd8d8 0%,#bcbcbc 100%); /* W3C */
+}
