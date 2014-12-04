@@ -43,7 +43,7 @@ infobox = """<div id="pot-amount">Pot: 303.00</div>
     </div>
   </div>
 </div>
-<div id="side-pots">
+<div id="side-pots" class="hide">
   <strong>Side Pots:</strong>
   <ol>
     <li>Pot 1: 303.00</li>
@@ -60,6 +60,6 @@ infobox = """<div id="pot-amount">Pot: 303.00</div>
     <li>Pot 6: 500.00</li>
   </ol>
 </div>
-<div id="timer">9</div>
+<div id="timer" class="hide">9</div>
 <div id="gametype">NL Hold'em<br>Blinds: 30/60</div> 
 """

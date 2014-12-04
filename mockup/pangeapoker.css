@@ -574,8 +574,16 @@ input[type=checkbox] {
     line-height:14px;
     font-size:12px;
 }
+
+.hide {
+    visibility:hidden;
+}
+
+.show {
+    visibility:visible;
+}
 #poker-room {
-  background-image:url('./images/bg-green.png');
+  background-image:url('./images/bg.png');
 }
 
 #seat-1 {

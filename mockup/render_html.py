@@ -1,4 +1,3 @@
-
 import lxml.html
 import settings as S
 import static
@@ -238,7 +237,7 @@ def add_dealer_buttons(html):
         add_dealer_button(html, seat)
         
 seats = range(10)[1:]
-tablecards = range(6)[1:]
+tablecards = range(len(S.tablecardimgs)+1)[1:]
 buttons = range(3)
 
 html = get_static_html()
