@@ -165,3 +165,7 @@ First thing is to get the pot amount to display based on whatever message the se
 For the pot amount label:
 
 Update CSS to min-width, not width, so it expands with text. Add left-right padding. Then write JS to recenter label when it is over 120px.
+
+--- 
+
+So I create a WebSocket connection inside of the pangea object. When the WebSocket recieves a message, it parses is as JSON, then iterates through the object's keys, and for each key it matches a key in the handlers object which pairs the key with a function to handle that key. so message = {'potAmount':450.00} will match handlers = {'potAmount':pangea.API.potAmount} and then call pangea.API.potAmount(450.00).	   
