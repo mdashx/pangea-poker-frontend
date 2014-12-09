@@ -6,34 +6,31 @@ var WebSocket = window.WebSocket
 
 pangea.wsURI = 'ws://localhost:9000'
 
-function centerPotAmount(){
-  var width = $('#pot-amount').outerWidth()
-  var center = 400
-  $('#pot-amount').css({left:center - (width/2)})
-}
-
-function updatePotAmount(amount){
-  $('#pot-amount').text('Pot: ' + String(amount))
-  centerPotAmount()
-}
-
 pangea.API = new Object()
 
-pangea.API.potAmount = function(message){
-  // should make this take an ordered list of pots
-  updatePotAmount(message)
-  centerPotAmount()
+pangea.API.seats = function(seatArray){
+  for (var i=0; i < seatArray.length; i++){
+    if (seatArray[i].name != undefined) {
+      pangea.GUI.updateSeat(seatArray[i])
+    }
+  }
 }
 
 pangea.onMessage = function(message){
-  var handlers = {'potAmount':pangea.API.potAmount}
+  var handlers = {'potAmount':pangea.API.potAmount, 'seats':pangea.API.seats, 'player':pangea.API.player}
   message = JSON.parse(message)
+  console.log('Recieved: ', message)
   for (var key in message){
     if (message.hasOwnProperty(key)){
       var handler = handlers[key]
       handler(message[key])
     }
   }
+}
+
+pangea.sendMessage = function(message){
+  pangea.ws.send(message)
+  console.log('Sent: ', message)
 }
 
 pangea.openWebSocket = function(){
@@ -45,6 +42,18 @@ pangea.openWebSocket = function(){
 }
 
 pangea.ws = pangea.openWebSocket()
-centerPotAmount()
 
+pangea.player = function(seat, stack){
+  this.seat = seat
+  this.stack = stack
+}
 
+pangea.table = function(tocall){
+  this.tocall = tocall
+}
+
+pangea.API.player = function(message){
+  pangea.player.seat = message.seat
+  pangea.player.stack = message.stack
+  pangea.GUI.update()
+}
