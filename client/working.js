@@ -10,10 +10,12 @@ pangea.API = new Object()
 
 pangea.API.seats = function(seatArray){
   for (var i=0; i < seatArray.length; i++){
-    if (seatArray[i].name != undefined) {
       pangea.GUI.updateSeat(seatArray[i])
-    }
   }
+}
+
+pangea.tmpholecards = function(){
+  pangea.player.holecards = ['AS', 'AD']
 }
 
 pangea.onMessage = function(message){
@@ -46,14 +48,31 @@ pangea.ws = pangea.openWebSocket()
 pangea.player = function(seat, stack){
   this.seat = seat
   this.stack = stack
+  this.holecards = undefined
+  this.player = false
 }
 
 pangea.table = function(tocall){
   this.tocall = tocall
+  this.activeSeats = []
+}
+
+pangea.findPlayerSeat = function(){
+  for (var i=0; i<pangea.GUI.seats.length; i++){
+    if (pangea.GUI.seats[i].seat == pangea.player.seat){
+      pangea.GUI.seats[i].player = true
+    } else {
+      pangea.GUI.seats[i].player = false
+    }
+  }
 }
 
 pangea.API.player = function(message){
   pangea.player.seat = message.seat
   pangea.player.stack = message.stack
+  pangea.player.holecards = undefined
+  pangea.findPlayerSeat()
   pangea.GUI.update()
+  pangea.tmpholecards()
 }
+

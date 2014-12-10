@@ -72,6 +72,10 @@
     visibility:visible;
 }
 
+.facedown {
+    width:150px;
+}
+
 .down1 {
     position:absolute;
     top:35px;

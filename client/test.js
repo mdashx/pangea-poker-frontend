@@ -11,13 +11,21 @@ function test1(){
   pangea.sendMessage(JSON.stringify(testmsg))
 }
 
-// function bgtest(){
-//   pangea.GUI.seat1.avatar = './images/avatar-default2.png'
-//   pangea.GUI.seat1.update()
-// }
+function closeWebSocket(){
+  pangea.ws.close()
+}
 
-$('.faceup').addClass('hide')
-$('.facedown').addClass('hide')
+$('#testCloseWebSocket').click(function(){closeWebSocket()})
+
+function clearSeats(){
+  var msg = {'test':'clearseats'}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
+$('#testClearSeats').click(function(){clearSeats()})
+
+// $('.faceup').addClass('hide')
+// $('.facedown').addClass('hide')
 $('.dealerbutton').addClass('hide')
 $('.stack-label').addClass('hide')
 $('.tablecard').addClass('hide')
@@ -27,12 +35,9 @@ $('#chatbox').addClass('hide')
 pangea.GUI.init()
 
 // pangea.API.seats(test_seats)
-
-function seatstest(){
-  pangea.ws.send('seats')
-}
-
+// function seatstest(){
+//   pangea.ws.send('seats')
+// }
 // pangea.actions.sit()
-
 // pangea.GUI.tocall()
 // pangea.GUI.playerstack()
