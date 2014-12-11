@@ -2,7 +2,6 @@ var console = window.console
 var $ = window.$
 var pangea = window.pangea
 
-
 function closeWebSocket(){
   pangea.ws.close()
   console.log("WebSocket Closed")
@@ -19,8 +18,14 @@ function clearSeats(){
   pangea.sendMessage(JSON.stringify(msg))
 }
 
+function dealCards1(){
+  var msg = {'test':{'deal1':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
 $('#testFillSeats').click(function(){fillSeats()})
 $('#testClearSeats').click(function(){clearSeats()})
+$('#testDeal1').click(function(){dealCards1()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]

@@ -8,7 +8,7 @@ class PangeaWebSocket(WebSocket):
         super(PangeaWebSocket, self).__init__(sock, protocols=None, extensions=None, environ=None, heartbeat_freq=None)
         self.default_usernames = ['kuphephaw6','Pantiwx','duvaye62','albogawx','oklepankal6','aikokj','immoseut','dixibelonly1wu','possano9s','claireneubertj9','Schwerinoa','jorsonwa','atheistafghanfa','fliblySnallbr','outflowbs','ege1mee6','hondan87','espasasp4','mietlicada','grasog4q']
         self.usernames = list(self.default_usernames)
-        self.playerseat = {'name':'LauraPalmer', 'stack':self.get_stack(), 'empty':0}
+        self.playerseat = {'name':'LauraPalmer', 'stack':self.get_stack(), 'empty':0, 'playing':1, 'player':1}
         self.emptyseats = {0:{'empty':1}, 1:{'empty':1}, 2:{'empty':1}, 3:{'empty':1}, 4:{'empty':1}, 5:{'empty':1}, 6:{'empty':1}, 7:{'empty':1}, 8:{'empty':1}}
         self.seats = self.emptyseats.copy()
         self.player = None
@@ -56,7 +56,7 @@ class PangeaWebSocket(WebSocket):
                 this_seat = random.randrange(0, len(these_seats))
                 new_seat = these_seats[this_seat]
                 these_seats.remove(new_seat)
-                self.seats[new_seat] = {'name':self.get_player(), 'stack':self.get_stack(), 'empty':0}
+                self.seats[new_seat] = {'name':self.get_player(), 'stack':self.get_stack(), 'empty':0, 'playing':1}
             self.send_all_seats()
 
         def clearseats(doesntmatter):
@@ -65,7 +65,15 @@ class PangeaWebSocket(WebSocket):
             player_msg = {'seat':'', 'stack':'', 'sitting':0}
             self.send_message({'player':player_msg})
 
-        handlers = {'clearseats':clearseats, 'fillseats':fillseats}      
+        def deal1(doesnmatter):
+            if self.player != None:
+                c1 = "AS"
+                c2 = "AD"
+                self.send_message({'player':{'holecards':[c1, c2]}})
+                self.send_message({'action':{'deal':'holecards'}})
+
+        handlers = {'clearseats':clearseats, 'fillseats':fillseats,
+                    'deal1':deal1}      
 
         for key in message.keys():
             if key in handlers.keys():

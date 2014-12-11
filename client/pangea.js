@@ -10,12 +10,23 @@ pangea.actions.join = function(seatnum){
   pangea.sendMessage(message)
 }
 
+pangea.initcards = function(){
+  for (var i=0; i < pangea.seats.length; i++){
+    var seat = pangea.seats[i]
+    seat.facedown1 = new pangea.Card(pangea.constants.facedown, seat.select.facedown1, seat.select.seat)
+    seat.facedown2 = new pangea.Card(pangea.constants.facedown, seat.select.facedown2, seat.select.seat)
+    seat.faceup1 = new pangea.Card(undefined, seat.select.faceup1, seat.select.seat)
+    seat.faceup2 = new pangea.Card(undefined, seat.select.faceup2, seat.select.seat)
+  }
+}
+
 pangea.init = function(){
   for (var i=0; i<9; i++){
     var newSeat = new pangea.Seat(i)
     pangea.seats.push(newSeat)
     newSeat.update()
   }
+  pangea.initcards()
 }
 
 pangea.update = function(){
@@ -24,11 +35,14 @@ pangea.update = function(){
   }
   if (pangea.player.sitting != 0){
     pangea.gui.addPlayerControls()
-    console.log('not sitting')
   }  else {
     pangea.gui.addJoinLabel()
   }
+  pangea.gui.updatePotAmount()
+  pangea.gui.playerstack()
 }
+
+
 
 $('.player-info').hover(
   function(){

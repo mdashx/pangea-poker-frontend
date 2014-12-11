@@ -105,7 +105,7 @@ pangea.openWebSocket = function(){
 }
 
 pangea.onMessage = function(message){
-  var handlers = {'potAmount':pangea.API.potAmount, 'seats':pangea.API.seats, 'player':pangea.API.player}
+  var handlers = {'action':pangea.API.action, 'game':pangea.API.game, 'seats':pangea.API.seats, 'player':pangea.API.player}
   message = JSON.parse(message)
   console.log('Recieved: ', message)
   for (var key in message){

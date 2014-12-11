@@ -11,8 +11,8 @@ pangea.Seat = function(seat, avatar, name, stack){
   this.name = name
   this.stack = stack
   this.action = ''
-  this.playing = undefined
-  this.player = false
+  this.playing = 0
+  this.player = 0
   this.empty = 1
   this.setSelectors()
   this.updateCSS()
@@ -74,12 +74,6 @@ pangea.Seat.prototype.sitdown = function(){
     })
   } 
 }
-
-// pangea.Seat.prototype.cansit = function(){
-//   if (pangea.player.sitting != 0){
-//     $('.can-sit').unbind('click')
-//   }
-// }
 
 pangea.Seat.prototype.update = function(params){
   for (var param in params){

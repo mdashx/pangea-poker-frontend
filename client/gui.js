@@ -38,7 +38,8 @@ pangea.gui.centerPotAmount = function(){
   $('#pot-amount').css({left:center - (width/2)})
 }
 
-pangea.gui.updatePotAmount = function(amount){
+pangea.gui.updatePotAmount = function(){
+  var amount = pangea.game.pot[0]
   $('#pot-amount').text('Pot: ' + String(amount))
   pangea.gui.centerPotAmount()
 }
@@ -61,3 +62,31 @@ pangea.gui.playerstack = function(){
   }
 }
 
+pangea.gui.dealcards = function(){
+  var delay = 50
+  var dealTheseCards = []
+  for (var i=0; i < pangea.seats.length; i++){
+    var seat = pangea.seats[i]
+    if (seat.playing == 1){
+      if (seat.player == 1){
+        seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]
+        dealTheseCards.push(seat.faceup1)
+      } else {dealTheseCards.push(seat.facedown1)}
+    }
+  }
+  for (var j=0; j < pangea.seats.length; j++){
+    var seat = pangea.seats[j]
+    if (seat.playing == 1){
+      if (seat.player == 1){
+        seat.faceup2.image = pangea.deck[pangea.player.holecards[1]]
+        dealTheseCards.push(seat.faceup2)
+      } else {dealTheseCards.push(seat.facedown2)}
+    }
+  }
+  for (var k=0; k < dealTheseCards.length; k++){
+    window.setTimeout(function(){
+      var thiscard = dealTheseCards.shift()
+      thiscard.deal()
+    }, delay * k)
+  }
+}

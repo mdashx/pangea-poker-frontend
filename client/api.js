@@ -23,3 +23,32 @@ pangea.API.player = function(playerArray){
   }
   pangea.update()
 }
+
+pangea.API.game = function(gameArray){
+  for (var param in gameArray){
+    if (pangea.game.hasOwnProperty(param)){
+      pangea.game[param] = gameArray[param]
+    } else {
+      console.log("Property not found ", param)
+    }
+  }
+}
+
+pangea.API.deal = function(action){
+  if (action == 'holecards'){
+    pangea.gui.dealcards()
+  }
+}
+
+pangea.API.action = function(actionArray){
+  var handlers = {'deal':pangea.API.deal}
+  for (var action in actionArray){
+    if (actionArray.hasOwnProperty(action)){
+      var handler = handlers[action]
+      console.log(actionArray[action])
+      handler(actionArray[action])
+    }
+  }
+}
+
+

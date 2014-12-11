@@ -52,13 +52,13 @@
     visibility:visible;
 }
 
-.down1 {
+.down0 {
     position:absolute;
     top:35px;
     left:5px
 }
 
-.down2 {
+.down1 {
     position:absolute;
     top:35px;
     left:20px;
@@ -702,12 +702,12 @@ input[type=checkbox] {
   width:150px;
 }
 
-.card1 {
+.card0 {
   top:12px;
   left:15px;
 }
 
-.card2 {
+.card1 {
   top:25px;
   left:40px;
 }
