@@ -1,7 +1,9 @@
+var $ = window.$
+var console = window.console
+var WebSocket = window.WebSocket
+
 var pangea = new Object()
 pangea.pokerRoom = document.getElementById('poker-room')
-
-// http://stackoverflow.com/questions/4959975/generate-random-value-between-two-numbers-in-javascript
 
 pangea.randomIntFromInterval = function(min,max)
 {
@@ -51,7 +53,6 @@ pangea.addChip = function(chipnum, left, top, potBool){
   pangea.pokerRoom.appendChild(chipDiv)
 }
 
-
 pangea.playerChips = function(playernum, stacknum, chipnum, quantity){
   var p1 = [[494, 90], [475, 92], [488, 106], [507, 104], [470, 108]]
   var p2 = [[644, 132], [630, 142], [648, 149], [631, 160], [647, 167]]
@@ -95,6 +96,32 @@ pangea.hideBetLabels = function(){
     }
   }
 
+pangea.openWebSocket = function(){
+  var ws  = new WebSocket(pangea.wsURI)
+  ws.onmessage = function(event){
+    pangea.onMessage(event.data)
+  }
+  return ws
+}
+
+pangea.onMessage = function(message){
+  var handlers = {'potAmount':pangea.API.potAmount, 'seats':pangea.API.seats, 'player':pangea.API.player}
+  message = JSON.parse(message)
+  console.log('Recieved: ', message)
+  for (var key in message){
+    if (message.hasOwnProperty(key)){
+      var handler = handlers[key]
+      handler(message[key])
+    }
+  }
+}
+
+pangea.sendMessage = function(message){
+  pangea.ws.send(message)
+  console.log('Sent: ', message)
+}
 
 pangea.dealerTray()
 pangea.hideBetLabels()
+pangea.wsURI = 'ws://localhost:9000'
+pangea.ws = pangea.openWebSocket()

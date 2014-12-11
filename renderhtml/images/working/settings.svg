@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="icon"
+   x="0px"
+   y="0px"
+   width="19.000523"
+   height="19"
+   viewBox="0 0 19.000523 19"
+   enable-background="new 0 0 1024 1024"
+   xml:space="preserve"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="settings.svg"
+   inkscape:export-filename="/home/tom/Dropbox/pangea/mockup/images/settings.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs6" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="1.84375"
+     inkscape:cx="48.282184"
+     inkscape:cy="-29.288136"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="icon"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" /><path
+     id="settings_1_"
+     d="M 17.378251,8.2622013 15.694252,7.9812704 C 15.57186,7.4808846 15.393403,7.0025624 15.160988,6.5564409 L 16.239034,5.2197763 C 16.46832,4.9372886 16.457903,4.5308387 16.21617,4.2582019 L 15.546411,3.5044157 C 15.303636,3.2320653 14.901054,3.1744636 14.593943,3.3684821 L 13.153802,4.273779 C 12.520379,3.8312273 11.802869,3.5044157 11.02886,3.3147904 L 10.747123,1.6217618 C 10.688003,1.2632684 10.377781,1.0002319 10.013619,1.0002319 H 9.0043097 c -0.3634224,0 -0.6746884,0.2630365 -0.7325172,0.6215299 L 7.9885301,3.3153182 C 7.3485995,3.4720003 6.7486071,3.7248997 6.2010557,4.0579922 L 4.8314549,3.0805456 C 4.5362776,2.8696709 4.1308494,2.9026411 3.8732572,3.1597277 L 3.1602063,3.8732878 C 2.9031644,4.1308844 2.8701898,4.5363144 3.0816237,4.831489 l 0.979712,1.3722205 C 3.7313818,6.7471221 3.4810743,7.3437074 3.3244164,7.9779242 L 1.6217501,8.2622458 C 1.2638113,8.3213865 1.0002613,8.631628 1.0002613,8.9957849 v 1.0085191 c 0,0.364166 0.26355,0.674416 0.6214888,0.73354 l 1.7026663,0.284321 c 0.1286543,0.521886 0.315422,1.020428 0.56366,1.482655 L 2.814943,13.833942 c -0.2285078,0.28222 -0.2189075,0.688929 0.022824,0.961324 l 0.6692422,0.753787 c 0.2427945,0.272869 0.6456039,0.329423 0.9527337,0.135897 l 1.4608972,-0.917706 c 0.6181496,0.422805 1.3174641,0.733556 2.0678916,0.917706 l 0.2832628,1.693315 c 0.057827,0.358484 0.3690928,0.621503 0.7325152,0.621503 h 1.0093093 c 0.364162,0 0.674384,-0.263019 0.733504,-0.621529 l 0.282217,-1.693316 c 0.631943,-0.15457 1.224328,-0.403067 1.767004,-0.730443 l 1.426671,1.018925 c 0.294664,0.211663 0.700377,0.17846 0.957704,-0.07936 l 0.713316,-0.713319 c 0.256758,-0.256809 0.291535,-0.662014 0.07829,-0.9577 L 14.956606,12.79895 c 0.330921,-0.545238 0.582538,-1.142879 0.738208,-1.779932 l 1.683978,-0.2812 c 0.358983,-0.05905 0.62147,-0.369382 0.62147,-0.733538 V 8.995758 C 17.999754,8.6316102 17.737266,8.3213597 17.378246,8.2622371 z M 9.5269685,12.687413 c -1.7599826,0 -3.1874132,-1.427701 -3.1874132,-3.1874128 0,-1.759989 1.4274306,-3.1874132 3.1874132,-3.1874132 1.7596795,0 3.1873765,1.4274242 3.1873765,3.1874132 0,1.7597118 -1.427697,3.1874128 -3.1873765,3.1874128 z"
+     inkscape:connector-curvature="0"
+     style="fill:#4e4e4e;fill-opacity:1" /></svg>

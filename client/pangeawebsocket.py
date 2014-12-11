@@ -8,9 +8,10 @@ class PangeaWebSocket(WebSocket):
         super(PangeaWebSocket, self).__init__(sock, protocols=None, extensions=None, environ=None, heartbeat_freq=None)
         self.default_usernames = ['kuphephaw6','Pantiwx','duvaye62','albogawx','oklepankal6','aikokj','immoseut','dixibelonly1wu','possano9s','claireneubertj9','Schwerinoa','jorsonwa','atheistafghanfa','fliblySnallbr','outflowbs','ege1mee6','hondan87','espasasp4','mietlicada','grasog4q']
         self.usernames = list(self.default_usernames)
-        self.player = {'name':'LauraPalmer', 'stack':self.get_stack(), 'empty':0}
-        self.emptyseats = {0:{'empty':1}, 1:{}, 2:{}, 3:{}, 4:{}, 5:{}, 6:{}, 7:{}, 8:{}}
+        self.playerseat = {'name':'LauraPalmer', 'stack':self.get_stack(), 'empty':0}
+        self.emptyseats = {0:{'empty':1}, 1:{'empty':1}, 2:{'empty':1}, 3:{'empty':1}, 4:{'empty':1}, 5:{'empty':1}, 6:{'empty':1}, 7:{'empty':1}, 8:{'empty':1}}
         self.seats = self.emptyseats.copy()
+        self.player = None
 
     def get_player(self):
         name = self.usernames[random.randint(0, len(self.usernames)-1)]
@@ -31,6 +32,7 @@ class PangeaWebSocket(WebSocket):
 
     def send_all_seats(self):
         these_seats = []
+        print self.seats
         for seat in self.seats.keys():
             this_seat = {'seat':seat}
             this_seat.update(self.seats[seat])
@@ -38,19 +40,44 @@ class PangeaWebSocket(WebSocket):
         self.send_message({'seats':these_seats})
         
     def test(self, message):
-        if message == 'fillseats':
-            for seat in self.seats.keys():
-                if self.seats[seat] == {}:
-                    self.seats[seat] = {'name':self.get_player(), 'stack':self.get_stack()}
+        def fillseats(num_players):
+            if not isinstance(num_players, int): num_players = 9
+            if num_players < 0 or num_players > 9: num_players = 9
+            self.usernames = list(self.default_usernames)
+            self.seats = self.emptyseats.copy()
+            these_seats = range(0,9)
+            print these_seats
+            if self.player in range(0,9):
+                self.seats[self.player] = self.playerseat
+                these_seats.remove(self.player)
+                num_players -= 1
+            for i in range(num_players):
+                print these_seats
+                this_seat = random.randrange(0, len(these_seats))
+                new_seat = these_seats[this_seat]
+                these_seats.remove(new_seat)
+                self.seats[new_seat] = {'name':self.get_player(), 'stack':self.get_stack(), 'empty':0}
             self.send_all_seats()
-        if message == 'clearseats':
+
+        def clearseats(doesntmatter):
             self.seats = self.emptyseats.copy()
             self.send_all_seats()
+            player_msg = {'seat':'', 'stack':'', 'sitting':0}
+            self.send_message({'player':player_msg})
+
+        handlers = {'clearseats':clearseats, 'fillseats':fillseats}      
+
+        for key in message.keys():
+            if key in handlers.keys():
+                handler = handlers[key]
+                handler(message[key])
+            else: self.error(key)
             
     def action(self, message):
         def join(seat):
-            self.seats[seat] = self.player
-            player_msg = {'seat':seat, 'stack':self.player['stack']}
+            self.player = seat
+            self.seats[seat] = self.playerseat
+            player_msg = {'seat':seat, 'stack':self.playerseat['stack'], 'sitting':1}
             self.send_all_seats()
             self.send_message({'player':player_msg})
                         
@@ -70,8 +97,3 @@ class PangeaWebSocket(WebSocket):
                 handler = handlers[key]
                 handler(message[key])
             else: self.error(key)
-            
-        # if message.data == 'test':
-        #     send_message = json.dumps({'seats':test_seats})
-        #     self.send_message(send_message)
-        # if message.data
