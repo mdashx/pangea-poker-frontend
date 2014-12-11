@@ -34,11 +34,30 @@ pangea.API.game = function(gameArray){
   }
 }
 
-pangea.API.deal = function(action){
-  if (action == 'holecards'){
-    pangea.gui.dealcards()
+pangea.API.deal = function(message){
+  function dealer(new_dealer){
+    pangea.dealer = new_dealer
+    pangea.update()
   }
+  function holecards(new_cards){
+    if (pangea.player.sitting != 0){
+      pangea.player.holecards = new_cards
+    }
+  }
+  var handlers = {'holecards':holecards, 'dealer':dealer}
+  for (var key in message){
+    if (message.hasOwnProperty(key)){
+      var handler = handlers[key]
+      handler(message[key])
+    }
+  }
+  pangea.gui.dealcards()
 }
+
+  // if (action == 'holecards'){
+  //   pangea.gui.dealcards()
+  // }
+
 
 pangea.API.action = function(actionArray){
   var handlers = {'deal':pangea.API.deal}
@@ -50,5 +69,6 @@ pangea.API.action = function(actionArray){
     }
   }
 }
+
 
 

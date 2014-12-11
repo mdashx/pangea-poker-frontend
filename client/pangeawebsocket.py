@@ -9,10 +9,17 @@ class PangeaWebSocket(WebSocket):
         self.default_usernames = ['kuphephaw6','Pantiwx','duvaye62','albogawx','oklepankal6','aikokj','immoseut','dixibelonly1wu','possano9s','claireneubertj9','Schwerinoa','jorsonwa','atheistafghanfa','fliblySnallbr','outflowbs','ege1mee6','hondan87','espasasp4','mietlicada','grasog4q']
         self.usernames = list(self.default_usernames)
         self.playerseat = {'name':'LauraPalmer', 'stack':self.get_stack(), 'empty':0, 'playing':1, 'player':1}
-        self.emptyseats = {0:{'empty':1}, 1:{'empty':1}, 2:{'empty':1}, 3:{'empty':1}, 4:{'empty':1}, 5:{'empty':1}, 6:{'empty':1}, 7:{'empty':1}, 8:{'empty':1}}
+        self.empty_seat = {'empty':1, 'playing':0}
+        self.emptyseats = self.make_empty_seats()
         self.seats = self.emptyseats.copy()
         self.player = None
 
+    def make_empty_seats(self):
+        theseseats = {}
+        for i in range(9):
+            theseseats[i] = self.empty_seat
+        return theseseats
+        
     def get_player(self):
         name = self.usernames[random.randint(0, len(self.usernames)-1)]
         self.usernames.remove(name)
@@ -21,7 +28,19 @@ class PangeaWebSocket(WebSocket):
     def get_stack(self):
         stack = random.randint(100, 100000) * .01
         return float(Decimal(stack).quantize(Decimal('.01')))
-                    
+
+    def get_active(self):
+        active = []
+        for key in self.seats.keys():
+            if self.seats[key]['empty'] != 1: active.append(key)
+        return active
+
+    def get_dealer(self):
+        active = self.get_active()
+        dealer = random.randrange(0, len(active))
+        dealer = active[dealer]
+        return dealer
+                        
     def send_message(self, send_message):
         send_message = json.dumps(send_message)
         print "Sending: " + send_message
@@ -60,18 +79,25 @@ class PangeaWebSocket(WebSocket):
             self.send_all_seats()
 
         def clearseats(doesntmatter):
+            self.player = None
+            player_msg = {'seat':None, 'stack':0, 'sitting':0, 'holecards':[None, None]}
+            self.send_message({'player':player_msg})
+
             self.seats = self.emptyseats.copy()
             self.send_all_seats()
             player_msg = {'seat':'', 'stack':'', 'sitting':0}
             self.send_message({'player':player_msg})
 
         def deal1(doesnmatter):
+            c1 = ''
+            c2 = ''
             if self.player != None:
                 c1 = "AS"
                 c2 = "AD"
-                self.send_message({'player':{'holecards':[c1, c2]}})
-                self.send_message({'action':{'deal':'holecards'}})
-
+                # self.send_message({'player':{'holecards':[c1, c2]}})
+            self.send_message({'deal':{'holecards':[c1, c2],
+                                       'dealer':self.get_dealer()}})
+            
         handlers = {'clearseats':clearseats, 'fillseats':fillseats,
                     'deal1':deal1}      
 

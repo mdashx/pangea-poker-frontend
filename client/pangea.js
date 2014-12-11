@@ -40,9 +40,8 @@ pangea.update = function(){
   }
   pangea.gui.updatePotAmount()
   pangea.gui.playerstack()
+  pangea.getTableOrder()
 }
-
-
 
 $('.player-info').hover(
   function(){

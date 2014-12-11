@@ -23,9 +23,16 @@ function dealCards1(){
   pangea.sendMessage(JSON.stringify(msg))
 }
 
+function returnCards(){
+  for (var seat in pangea.seats){
+    pangea.seats[seat].returnCards()
+  }
+}
+
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
 $('#testFillSeats').click(function(){fillSeats()})
 $('#testClearSeats').click(function(){clearSeats()})
 $('#testDeal1').click(function(){dealCards1()})
+$('#testReturnCards').click(function(){returnCards()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]

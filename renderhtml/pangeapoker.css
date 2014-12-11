@@ -52,13 +52,13 @@
     visibility:visible;
 }
 
-.down1 {
+.down0 {
     position:absolute;
     top:35px;
     left:5px
 }
 
-.down2 {
+.down1 {
     position:absolute;
     top:35px;
     left:20px;
@@ -487,47 +487,47 @@ input[type=checkbox] {
     text-align:left;
 }
 
-#seat1button {
+#seat0button {
     top:105px;
     left:607px;
 }
 
-#seat2button {
+#seat1button {
     top:197px;
+    left:670px;
+}
+
+#seat2button {
+    top:249px;
     left:670px;
 }
 
 #seat3button {
-    top:249px;
-    left:670px;
-}
-
-#seat4button {
     top:342px;
     left:525px;
 }
 
-#seat5button {
+#seat4button {
     top:354px;
     left:338px;
 }
 
-#seat6button {
+#seat5button {
     top:342px;
     left:265px;
 }
 
-#seat7button {
+#seat6button {
     top:249px;
     left:120px;
 }
 
-#seat8button {
+#seat7button {
     top:197px;
     left:120px;
 }
 
-#seat9button {
+#seat8button {
     top:105px;
     left:183px;
 }
@@ -702,12 +702,12 @@ input[type=checkbox] {
   width:150px;
 }
 
-.card1 {
+.card0 {
   top:12px;
   left:15px;
 }
 
-.card2 {
+.card1 {
   top:25px;
   left:40px;
 }

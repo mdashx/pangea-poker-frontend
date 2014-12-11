@@ -189,3 +189,28 @@ The main goal before submitting the next milestone is to make sure messages from
 
 Also, I need code to clear all of the players' cards and the board cards.
 
+# Thu Dec 11 12:08:16 EST 2014
+
+Some problems: the cards won't deal if the player isn't sitting. And I need to clear the cards. And I need to start dealing with the dealer button.
+
+^^ Ok, np, there was an indentation issue in the server side code, the client is fine with dealing even if the player has not joined the table.
+
+Also I need to add player actions.
+
+- Dealer button / Deal in order 
+- Fold Cards / Muck cards
+- Show cards / Return to deck (should be the same method as fold?)
+
+Done with showing the button, but I need to track the active players and move the button. Well, each seat already has a "playing" attribute. So I need to check the "playing" attr of each seat after the current dealer in order to update the dealer.
+
+Okay, I think I should worry about dealing in order first, then I'll know if I need some kind of seperate array for the active seats.
+
+Ah, I can just make a list of 1-9 starting with the seat after the dealer and then use that as the indexes. like tableOrder = [5,6,7,8,0,1,2,3,4]; for i in tableOrder.length; index = tO[i]; seat = pangea.seats[index]; Then just check if each seat is playing. Then I can update the table order by 1 after the hand, check if each seat is playing in order to place the dealer button, and update the table order again once I have a playing seat with the button, so that seat is in the first position of the tO array.
+
+Yep, added a tableOrder property on the main pangea object and a getTableOrder method to update it.
+
+It all works, but I need the server to specify who the dealer is now. So actually, I don't need to figure out who the dealer is: that is the server's job.
+
+I want a function to return all cards left in player's hands, and I don't want to show the animation for players that aren't holding cards, so I'll add a method on the seat to check for images in their card objects, and check that method inside the returnCards method. That way I can call returnCards on the whole table, but it will only show on the seats holding cards.
+
+

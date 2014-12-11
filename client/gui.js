@@ -66,7 +66,8 @@ pangea.gui.dealcards = function(){
   var delay = 50
   var dealTheseCards = []
   for (var i=0; i < pangea.seats.length; i++){
-    var seat = pangea.seats[i]
+    var index = pangea.tableOrder[i]
+    var seat = pangea.seats[index]
     if (seat.playing == 1){
       if (seat.player == 1){
         seat.faceup1.image = pangea.deck[pangea.player.holecards[0]]

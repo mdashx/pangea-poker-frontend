@@ -122,6 +122,18 @@ def add_static(html, static_html):
     new_html = lxml.html.fromstring(static_html)
     for child in new_html.iterchildren():
         pokerroom.append(child)
+
+def add_dealer_button(html, seat):
+    pokerroom = html.get_element_by_id('poker-room')
+    element_id = "seat%sbutton" % (seat)
+    dealerbtn = lxml.html.Element('div')
+    dealerbtn.attrib.update({'class':'dealerbutton', 'id':element_id})
+    dealerbtn.text = "D"
+    pokerroom.append(dealerbtn)
+
+def add_dealer_buttons(html):
+    for seat in seats:
+        add_dealer_button(html, seat)
         
 seats = range(9)
 buttons = range(3)
@@ -135,6 +147,8 @@ add_slider(html)
 amount_input(html)
 add_static(html, static.autocontrols)
 add_static(html, static.infobox)
+add_dealer_buttons(html)
+
 
 ## Render HTML
 

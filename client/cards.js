@@ -32,3 +32,25 @@ pangea.Card.prototype.deal = function(){
   )
 }
 
+pangea.Card.prototype.clearCard = function(){
+  this.selector.empty()
+}
+
+pangea.Card.prototype.returnCard = function(){
+  var dealspeed = 250
+  var dealElement = $('<img>')
+  dealElement.attr('src', this.dealimg)
+  var left = (pangea.constants.root.width()/2) - pangea.constants.dealwidth/2
+  dealElement.css({'position':'absolute', 'top':this.parent.css('top'),
+                   'left':this.parent.css('left'), 'width':this.parent.width()})
+  pangea.constants.root.append(dealElement)
+  var thiscard = this
+  dealElement.animate(
+    {'left':left, 'top':thiscard.origin[0],
+     'width':pangea.constants.dealwidth}, dealspeed, "linear",
+    function(){
+      dealElement.remove()
+    }
+  )
+}
+

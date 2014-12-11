@@ -30,6 +30,7 @@ pangea.Seat.prototype.setSelectors = function(){
   this.select.facedown2 = this.select.seat + " > .down1"
   this.select.faceup1 = this.select.seat + " > .card0"
   this.select.faceup2 = this.select.seat + " > .card1"
+  this.select.button = '#seat' + String(this.seat) + 'button'
 }
 
 pangea.Seat.prototype.emptycss = function(){
@@ -60,6 +61,14 @@ pangea.Seat.prototype.occupiedcss = function(){
   $(this.select.seat).css('border-color', pangea.constants.seatborder)
 }
 
+pangea.Seat.prototype.onTheButton = function(){
+  if (this.seat == pangea.dealer){
+    $(this.select.button).removeClass('hide')
+  } else {
+    $(this.select.button).addClass('hide')
+  }
+}
+
 pangea.Seat.prototype.updateCSS = function(){
   if (this.empty == 1){this.emptycss()}
   else {this.occupiedcss()}
@@ -75,6 +84,29 @@ pangea.Seat.prototype.sitdown = function(){
   } 
 }
 
+pangea.Seat.prototype.holdingCards = function(){
+  var theseCards = [this.faceup1, this.faceup2,
+                    this.facedown1, this.facedown2]
+  for (var i=0; i < theseCards.length; i++){
+    var hasImage = theseCards[i].selector
+    if (theseCards[i].selector.has('img').length > 0){
+      return true
+    }
+  }
+  return false
+}
+
+pangea.Seat.prototype.returnCards = function(){
+  if (this.holdingCards()){
+    this.faceup1.clearCard()
+    this.faceup2.clearCard()
+    this.facedown1.clearCard()
+    this.facedown2.clearCard()
+    this.facedown1.returnCard()
+    this.facedown2.returnCard()    
+  }
+}
+
 pangea.Seat.prototype.update = function(params){
   for (var param in params){
     if (this.hasOwnProperty(param)){
@@ -83,6 +115,10 @@ pangea.Seat.prototype.update = function(params){
       console.log("Parameter not found ", param)
     }
   }
+  if (this.seat === pangea.player.seat){
+    this.player = 1
+  } else { this.player = 0}
   this.updateCSS()
   this.sitdown()
+  this.onTheButton()
 }

@@ -100,8 +100,8 @@ def player_cards(seats, cssrules):
     faceup_sel = '.faceup > img'
     faceup_width = str(S.faceup_w) + 'px'
     add_rule(faceup_sel, 'width', faceup_width, cssrules)
-    card1 = '.card1'
-    card2 = '.card2'
+    card1 = '.card0'
+    card2 = '.card1'
     add_rule(card1, 'top', S.c1top, cssrules)
     add_rule(card1, 'left', S.c1left, cssrules)
     add_rule(card2, 'top', S.c2top, cssrules)
