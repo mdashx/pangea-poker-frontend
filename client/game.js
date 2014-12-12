@@ -9,6 +9,13 @@ pangea.game.tocall = 0
 pangea.seats = []
 pangea.dealer = undefined
 pangea.tableOrder = [0,1,2,3,4,5,6,7,8]
+pangea.cards = []
+
+for (var card in pangea.deck){
+  if (pangea.deck.hasOwnProperty(card)){
+    pangea.cards.push(card)
+  }
+}
 
 pangea.getTableOrder = function(){
   pangea.tableOrder = []

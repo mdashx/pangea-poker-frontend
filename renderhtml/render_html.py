@@ -134,9 +134,23 @@ def add_dealer_button(html, seat):
 def add_dealer_buttons(html):
     for seat in seats:
         add_dealer_button(html, seat)
+
+def add_boardcards(cards, html):
+    def add_card(card, pokerroom):
+        card_id = "card-%s" % (card)
+        thiscard = lxml.html.Element('div')
+        thiscard.attrib.update({'class':'boardcard', 'id':card_id})
+        pokerroom.append(thiscard)
+        return pokerroom
+    pokerroom = html.get_element_by_id('poker-room')
+    for card in cards:
+        pokerroom = add_card(card, pokerroom)
+    return html
         
+
 seats = range(9)
 buttons = range(3)
+boardcards = range(5)
 html = get_static_html()
 add_seats(seats, html)
 add_facedown_cards(seats, html)
@@ -148,7 +162,7 @@ amount_input(html)
 add_static(html, static.autocontrols)
 add_static(html, static.infobox)
 add_dealer_buttons(html)
-
+add_boardcards(boardcards, html)
 
 ## Render HTML
 

@@ -15,8 +15,10 @@ pangea.Seat = function(seat, avatar, name, stack){
   this.player = 0
   this.empty = 1
   this.setSelectors()
+  this.initcards()
   this.updateCSS()
   this.sitdown()
+  this.playercards = null
 }
 
 pangea.Seat.prototype.setSelectors = function(){
@@ -31,6 +33,13 @@ pangea.Seat.prototype.setSelectors = function(){
   this.select.faceup1 = this.select.seat + " > .card0"
   this.select.faceup2 = this.select.seat + " > .card1"
   this.select.button = '#seat' + String(this.seat) + 'button'
+}
+
+pangea.Seat.prototype.initcards = function(){
+  this.facedown1 = new pangea.Card(pangea.constants.facedown, this.select.facedown1, this)
+  this.facedown2 = new pangea.Card(pangea.constants.facedown, this.select.facedown2, this)
+  this.faceup1 = new pangea.Card(undefined, this.select.faceup1, this)
+  this.faceup2 = new pangea.Card(undefined, this.select.faceup2, this)
 }
 
 pangea.Seat.prototype.emptycss = function(){
@@ -107,6 +116,21 @@ pangea.Seat.prototype.returnCards = function(){
   }
 }
 
+pangea.Seat.prototype.showCards = function(){
+  if (Array.isArray(this.playercards)){
+    if (pangea.cards.indexOf(this.playercards[0]) > -1 &&
+        pangea.cards.indexOf(this.playercards[1]) > -1){
+      this.facedown1.clearCard()
+      this.facedown2.clearCard()
+      this.faceup1.showCard()
+      this.faceup2.showCard()
+    }
+  } else { 
+    this.faceup1.clearCard()
+    this.faceup2.clearCard()
+  }
+}
+
 pangea.Seat.prototype.update = function(params){
   for (var param in params){
     if (this.hasOwnProperty(param)){
@@ -121,4 +145,5 @@ pangea.Seat.prototype.update = function(params){
   this.updateCSS()
   this.sitdown()
   this.onTheButton()
+  this.showCards()
 }

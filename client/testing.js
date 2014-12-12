@@ -29,10 +29,16 @@ function returnCards(){
   }
 }
 
+function showCards(){
+  var msg = {'test':{'showcards':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
 $('#testFillSeats').click(function(){fillSeats()})
 $('#testClearSeats').click(function(){clearSeats()})
 $('#testDeal1').click(function(){dealCards1()})
 $('#testReturnCards').click(function(){returnCards()})
+$('#testShowCards').click(function(){showCards()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]

@@ -126,22 +126,22 @@
     top:0px;
 }
 
-.tablecard {
+.boardcard {
     width:70px;
     height:97px;
     position:absolute;
 }
 
-.tablecard > img {
+.boardcard > img {
     width:70px;
     height:97px;
 }
 
-#card-1 {left:211; top:157;}
-#card-2 {left:288; top:157;}
-#card-3 {left:365; top:157;}
-#card-4 {left:442; top:157;}
-#card-5 {left:519; top:157;}
+#card-0 {left:211; top:157;}
+#card-1 {left:288; top:157;}
+#card-2 {left:365; top:157;}
+#card-3 {left:442; top:157;}
+#card-4 {left:519; top:157;}
 
 .faceup {
     position:absolute;

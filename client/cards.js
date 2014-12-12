@@ -3,10 +3,11 @@ var console = window.console
 var pangea = window.pangea
 var WebSocket = window.WebSocket
 
-pangea.Card = function(image, selector, parentSelector){
+pangea.Card = function(image, selector, parentobj){
   this.image = image
   this.selector = $(selector)
-  this.parent = $(parentSelector)
+  this.parentobj = parentobj
+  this.parent = $(parentobj.select.seat)
   this.dealimg = pangea.constants.facedown
   this.origin = [110, 365] // top, left
 }
@@ -52,5 +53,25 @@ pangea.Card.prototype.returnCard = function(){
       dealElement.remove()
     }
   )
+}
+
+pangea.Card.prototype.showCard = function(){
+  function showIt(){
+    thiscard.image = pangea.deck[thiscard.card]
+    var cardElement = $('<img>')
+    cardElement.attr('src', thiscard.image)
+    thiscard.selector.append(cardElement)
+  }
+  var thiscard = this
+  if ($(this.selector).hasClass('card0')){
+    this.card = this.parentobj.playercards[0]
+    this.parentobj.playercards[0] = null
+    showIt()
+  }
+  if ($(this.selector).hasClass('card1')){
+    this.card = this.parentobj.playercards[1]
+    this.parentobj.playercards[1] = null
+    showIt()
+  }
 }
 

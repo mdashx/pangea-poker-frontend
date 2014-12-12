@@ -40,6 +40,9 @@ pangea.API.deal = function(message){
     pangea.update()
   }
   function holecards(new_cards){
+    for (var seat in pangea.seats){
+      pangea.seats[seat].playercards = null
+    }
     if (pangea.player.sitting != 0){
       pangea.player.holecards = new_cards
     }

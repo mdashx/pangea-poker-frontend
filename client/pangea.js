@@ -10,15 +10,15 @@ pangea.actions.join = function(seatnum){
   pangea.sendMessage(message)
 }
 
-pangea.initcards = function(){
-  for (var i=0; i < pangea.seats.length; i++){
-    var seat = pangea.seats[i]
-    seat.facedown1 = new pangea.Card(pangea.constants.facedown, seat.select.facedown1, seat.select.seat)
-    seat.facedown2 = new pangea.Card(pangea.constants.facedown, seat.select.facedown2, seat.select.seat)
-    seat.faceup1 = new pangea.Card(undefined, seat.select.faceup1, seat.select.seat)
-    seat.faceup2 = new pangea.Card(undefined, seat.select.faceup2, seat.select.seat)
-  }
-}
+// pangea.initcards = function(){
+//   for (var i=0; i < pangea.seats.length; i++){
+//     var seat = pangea.seats[i]
+//     seat.facedown1 = new pangea.Card(pangea.constants.facedown, seat.select.facedown1, seat)
+//     seat.facedown2 = new pangea.Card(pangea.constants.facedown, seat.select.facedown2, seat)
+//     seat.faceup1 = new pangea.Card(undefined, seat.select.faceup1, seat)
+//     seat.faceup2 = new pangea.Card(undefined, seat.select.faceup2, seat)
+//   }
+// }
 
 pangea.init = function(){
   for (var i=0; i<9; i++){
@@ -26,7 +26,7 @@ pangea.init = function(){
     pangea.seats.push(newSeat)
     newSeat.update()
   }
-  pangea.initcards()
+  // pangea.initcards()
 }
 
 pangea.update = function(){
