@@ -24,13 +24,24 @@ function dealCards1(){
 }
 
 function returnCards(){
-  for (var seat in pangea.seats){
-    pangea.seats[seat].returnCards()
-  }
+  pangea.gui.returnCards()
 }
 
 function showCards(){
   var msg = {'test':{'showcards':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
+function deal2(){
+  var msg = {'test':{'deal2':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+function deal3(){
+  var msg = {'test':{'deal3':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+function deal4(){
+  var msg = {'test':{'deal4':''}}
   pangea.sendMessage(JSON.stringify(msg))
 }
 
@@ -40,5 +51,14 @@ $('#testClearSeats').click(function(){clearSeats()})
 $('#testDeal1').click(function(){dealCards1()})
 $('#testReturnCards').click(function(){returnCards()})
 $('#testShowCards').click(function(){showCards()})
+$('#testDeal2').click(function(){deal2()})
+$('#testDeal3').click(function(){deal3()})
+$('#testDeal4').click(function(){deal4()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]
+
+var testboard = {'board':{0:'AH',1:'AS', 2:'AD'}}
+
+function goboard(){
+  pangea.API.deal(testboard)
+}

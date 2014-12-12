@@ -112,11 +112,13 @@ pangea.Seat.prototype.returnCards = function(){
     this.facedown1.clearCard()
     this.facedown2.clearCard()
     this.facedown1.returnCard()
-    this.facedown2.returnCard()    
+    this.facedown2.returnCard()
+    this.playercards = null
   }
 }
 
 pangea.Seat.prototype.showCards = function(){
+  if (this.player == 1){return true}
   if (Array.isArray(this.playercards)){
     if (pangea.cards.indexOf(this.playercards[0]) > -1 &&
         pangea.cards.indexOf(this.playercards[1]) > -1){

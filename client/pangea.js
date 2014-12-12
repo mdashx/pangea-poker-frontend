@@ -20,13 +20,23 @@ pangea.actions.join = function(seatnum){
 //   }
 // }
 
+pangea.boardcards = []
+
+pangea.initBoardCards = function(){
+  for (var i=0; i<5; i++){
+    var selector = '#card-' + i
+    var newBoardCard = new pangea.BoardCard(selector)
+    pangea.boardcards.push(newBoardCard)
+  }
+}
+
 pangea.init = function(){
   for (var i=0; i<9; i++){
     var newSeat = new pangea.Seat(i)
     pangea.seats.push(newSeat)
     newSeat.update()
   }
-  // pangea.initcards()
+  pangea.initBoardCards()
 }
 
 pangea.update = function(){
@@ -41,6 +51,7 @@ pangea.update = function(){
   pangea.gui.updatePotAmount()
   pangea.gui.playerstack()
   pangea.getTableOrder()
+  pangea.gui.showboardcards()
 }
 
 $('.player-info').hover(

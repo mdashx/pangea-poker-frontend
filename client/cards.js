@@ -12,6 +12,26 @@ pangea.Card = function(image, selector, parentobj){
   this.origin = [110, 365] // top, left
 }
 
+pangea.Card.prototype.showCard = function(){
+  function showIt(){
+    thiscard.image = pangea.deck[thiscard.card]
+    var cardElement = $('<img>')
+    cardElement.attr('src', thiscard.image)
+    thiscard.selector.append(cardElement)
+  }
+  var thiscard = this
+  if ($(this.selector).hasClass('card0')){
+    this.card = this.parentobj.playercards[0]
+    this.parentobj.playercards[0] = null
+    showIt()
+  }
+  if ($(this.selector).hasClass('card1')){
+    this.card = this.parentobj.playercards[1]
+    this.parentobj.playercards[1] = null
+    showIt()
+  }
+}
+
 pangea.Card.prototype.deal = function(){
   var dealspeed = 250
   var dealElement = $('<img>')
@@ -55,23 +75,4 @@ pangea.Card.prototype.returnCard = function(){
   )
 }
 
-pangea.Card.prototype.showCard = function(){
-  function showIt(){
-    thiscard.image = pangea.deck[thiscard.card]
-    var cardElement = $('<img>')
-    cardElement.attr('src', thiscard.image)
-    thiscard.selector.append(cardElement)
-  }
-  var thiscard = this
-  if ($(this.selector).hasClass('card0')){
-    this.card = this.parentobj.playercards[0]
-    this.parentobj.playercards[0] = null
-    showIt()
-  }
-  if ($(this.selector).hasClass('card1')){
-    this.card = this.parentobj.playercards[1]
-    this.parentobj.playercards[1] = null
-    showIt()
-  }
-}
 

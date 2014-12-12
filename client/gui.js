@@ -91,3 +91,19 @@ pangea.gui.dealcards = function(){
     }, delay * k)
   }
 }
+
+pangea.gui.showboardcards = function(){
+  for (var card in pangea.boardcards){
+    pangea.boardcards[card].deal()}
+}
+
+pangea.gui.returnCards = function(){
+  for (var seat in pangea.seats){
+    pangea.seats[seat].returnCards()
+  }
+  for (var card in pangea.boardcards){
+    // console.log(card)
+    // console.log(pangea.boardcards[card])
+    pangea.boardcards[card].returnCard()
+  }
+}

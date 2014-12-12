@@ -41,20 +41,31 @@ pangea.API.deal = function(message){
   }
   function holecards(new_cards){
     for (var seat in pangea.seats){
-      pangea.seats[seat].playercards = null
-    }
-    if (pangea.player.sitting != 0){
+      // pangea.seats[seat].playercards = null
       pangea.player.holecards = new_cards
+      if (seat == pangea.player.seat){
+        pangea.seats[seat].playercards = pangea.player.holecards
+      }
+    }
+    is_holecards = true
+  }
+  function boardcards(new_card){
+    for (var position in new_card){
+      pangea.boardcards[position].card = new_card[position]
     }
   }
-  var handlers = {'holecards':holecards, 'dealer':dealer}
+  var is_holecards = false
+  var newholecards = []
+  var handlers = {'holecards':holecards, 'dealer':dealer,
+                 'board':boardcards}
   for (var key in message){
     if (message.hasOwnProperty(key)){
       var handler = handlers[key]
       handler(message[key])
     }
   }
-  pangea.gui.dealcards()
+  if (is_holecards){pangea.gui.dealcards()}
+  pangea.update()
 }
 
   // if (action == 'holecards'){
@@ -63,14 +74,15 @@ pangea.API.deal = function(message){
 
 
 pangea.API.action = function(actionArray){
-  var handlers = {'deal':pangea.API.deal}
-  for (var action in actionArray){
-    if (actionArray.hasOwnProperty(action)){
-      var handler = handlers[action]
-      console.log(actionArray[action])
-      handler(actionArray[action])
-    }
-  }
+  // var handlers = {'deal':pangea.API.deal}
+  // for (var action in actionArray){
+  //   if (actionArray.hasOwnProperty(action)){
+  //     var handler = handlers[action]
+  //     console.log(actionArray[action])
+  //     handler(actionArray[action])
+  //   }
+  // }
+  return true
 }
 
 

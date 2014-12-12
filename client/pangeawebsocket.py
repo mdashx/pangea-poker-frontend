@@ -51,9 +51,8 @@ class PangeaWebSocket(WebSocket):
         dealer = active[dealer]
         return dealer
 
-    def get_cards(self):
-         return [cards[random.randint(0,len(cards)-1)],
-                 cards[random.randint(0,len(cards)-1)]]
+    def get_card(self):
+         return cards[random.randint(0,len(cards)-1)]
                             
     def send_message(self, send_message):
         send_message = json.dumps(send_message)
@@ -84,9 +83,17 @@ class PangeaWebSocket(WebSocket):
         def deal1(doesnmatter):
             c = [None, None]
             if self.player != None:
-                c = self.get_cards()
+                c = [self.get_card(), self.get_card()]
             self.send_message({'deal':{'holecards':[c[0], c[1]],
                                        'dealer':self.get_dealer()}})
+
+        def deal2(x):
+            self.send_message({'deal':{'board':{0:self.get_card(), 1:self.get_card(), 2:self.get_card()}}})
+        def deal3(x):
+            self.send_message({'deal':{'board':{3:self.get_card()}}})
+        def deal4(x):
+            self.send_message({'deal':{'board':{4:self.get_card()}}})
+                                    
         def fillseats(num_players):
             # clearseats('yea')
             self.blank_cards()
@@ -112,11 +119,12 @@ class PangeaWebSocket(WebSocket):
             print self.seats
             for seat in self.seats.keys():
                 if self.seats[seat]['empty'] != 1:
-                    self.seats[seat]['playercards'] = self.get_cards()
+                    self.seats[seat]['playercards'] = [self.get_card(), self.get_card()]
             self.send_all_seats()
             
         handlers = {'clearseats':clearseats, 'fillseats':fillseats,
-                    'deal1':deal1, 'showcards':showcards}      
+                    'deal1':deal1, 'showcards':showcards, 'deal2':deal2,
+                    'deal3':deal3, 'deal4':deal4}
 
         for key in message.keys():
             if key in handlers.keys():
