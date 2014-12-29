@@ -249,13 +249,14 @@ Working on milestone 3:
 + Show action in status bar for opponent that just acted
 + Show timer in status bar for opponent in turn 
 + Show pot amount in label
++ Control bet amount by slider control
++ Slider control snaps to amounts based on limit/blind, and chip stack
++ Send player actions to server (fold, check, bet, raise, call, auto options)
++ Check/Bet update to Call/Raise
++ Auto controls send action to server on player's turn
++ Show countdown timer on player's turn
++ Show side pot window
 
-- Show side pot window
-- Send player actions to server (fold, check, bet, raise, call, auto options)
-- Show countdown timer on player's turn
 
-- Control bet amount by slider control
-- Slider control snaps to amounts based on limit/blind, and chip stack
-- Auto controls send action to server on player's turn
-- Check/Bet update to Call/Raise
+
 

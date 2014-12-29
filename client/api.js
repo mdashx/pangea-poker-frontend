@@ -74,7 +74,7 @@ pangea.API.deal = function(message){
 
 pangea.API.action = function(actionArray){
   var handlers = {'chipsToPot':pangea.gui.chipsToPot, 'chipsToPlayer':pangea.gui.chipsToPlayer}
-  // var single_player = [pangea.gui.chipsToPlayer] 
+  // var single_player = [pangea.gui.chipsToPlayer]
   for (var action in actionArray){
     console.log(action)
     if (actionArray.hasOwnProperty(action)){
@@ -83,7 +83,8 @@ pangea.API.action = function(actionArray){
         pangea.gui.chipsToPlayer(actionArray[action][0])
       }
       if (action == 'returnPlayerCards'){
-        var thisseat = actionArray[action][0]
+        var thisseat = parseInt(actionArray[action][0])
+        console.log(thisseat)
         pangea.seats[thisseat].returnCards()
       }
       if (action == 'returnCards'){
@@ -94,5 +95,12 @@ pangea.API.action = function(actionArray){
   return true
 }
 
-
-
+pangea.API.checkAutoControls = function(){
+  if (pangea.game.myturn == 1){
+    var foldClicked = $('#checkbox1').prop('checked')
+    if (foldClicked){
+      pangea.sendMessage({'action':{'fold':'1'}})
+    }
+  }
+}
+  

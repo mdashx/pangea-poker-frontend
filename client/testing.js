@@ -77,8 +77,20 @@ function echo(){
   // console.log(jsonMsg)
 }
 
+function myTurn(){
+  var echoMsg = ''
+  if (pangea.game.myturn == 0){
+    echoMsg = '{"game":{"myturn":1}}'
+  } else {
+    echoMsg = '{"game":{"myturn":0}}'
+  }
+  var jsonMsg = JSON.parse(echoMsg)
+  pangea.sendMessage(JSON.stringify({'echo':jsonMsg}))
+}
+
 $('#testEcho').click(function(){echo()})
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
+$('#myTurn').click(function(){myTurn()})
 $('#testFillSeats').click(function(){fillSeats()})
 $('#testClearSeats').click(function(){clearSeats()})
 $('#testDeal1').click(function(){dealCards1()})

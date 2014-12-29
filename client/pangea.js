@@ -45,6 +45,10 @@ pangea.update = function(){
   pangea.gui.playerstack()
   pangea.getTableOrder()
   pangea.gui.showboardcards()
+  pangea.gui.betSlider()
+  pangea.gui.callRaise()
+  pangea.API.checkAutoControls()
+  pangea.gui.timer()
 }
 
 $('.player-info').hover(
@@ -58,12 +62,29 @@ $('.player-info').hover(
     }
   })
 
+$('#bet_slider').on("input", function(){
+  var currentBet = $('#bet_slider').val()
+  $('#bet-amount').val(currentBet)
+})
 
 $('#fold').click(function(){
-  if (pangea.game.myturn == true){
-    pangea.sendMessage({'action':''})
+  if (pangea.game.myturn == 1){
+    pangea.sendMessage({'action':{'fold':'1'}})
   } else {
     $('#checkbox1').click()
+  }
+})
+
+$('#click').click(function(){
+  if (pangea.game.myturn == 1){
+    pangea.sendMessage({'action':{'check':'1'}})
+  }
+})
+
+$('#bet').click(function(){
+  var thisBet = $('#bet-amount').val()
+  if (thisBet >= pangea.game.tocall){
+    pangea.sendMessage({'action':{'bet':thisBet}})
   }
 })
 

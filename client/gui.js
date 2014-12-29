@@ -42,6 +42,18 @@ pangea.gui.updatePotAmount = function(){
   var amount = pangea.game.pot[0]
   $('#pot-amount').text('Pot: ' + String(amount))
   pangea.gui.centerPotAmount()
+  if (pangea.game.pot.length > 1){
+    $('#side-pots').removeClass('hide')
+    var potList = $('#side-pots ol')
+    potList.html('')
+    for (var i=0; i<pangea.game.pot.length; i++){
+      var thisPot = pangea.game.pot[i]
+      var thisHtml = '<li>' + thisPot  + '</li>'
+      potList.append(thisHtml)
+    }
+  } else {
+     $('#side-pots').addClass('hide')
+  }
 }
 
 pangea.gui.tocall = function(){
@@ -184,3 +196,47 @@ pangea.gui.chipsToPlayer = function(seatnum){
           })
 }
 
+pangea.gui.betSlider = function(){
+  var slider = $('#bet_slider')
+  slider.prop('min', pangea.game.tocall)
+  slider.prop('step', pangea.game.bigblind)
+  if (pangea.game.limit > 0){
+    slider.prop('max', pangea.game.limit)
+  } else {
+    slider.prop('max', pangea.player.stack)
+  }
+}
+
+pangea.gui.callRaise = function(){
+  if (pangea.game.tocall > 0){
+    $('#check').text('Call')
+    $('#bet').text('Raise')
+  } else {
+    $('#check').text('Check')
+    $('#bet').text('Bet')
+  }
+}
+
+pangea.gui.timer = function(){
+  if (pangea.game.myturn == 1){
+    if (pangea.game.timer != 0){
+      $('#timer').removeClass('hide')
+      var timerImg = "./images/timer.gif?" + new Date().getTime();
+      var timerHtml = "<img src='"+ timerImg +"'>"
+      // var timerHtml = '10'
+      $('#timer').html(timerHtml)
+      var timerElement = $('#timer > img')
+      timerElement.css('position', 'absolute')
+      // var xoffset = ($('#timer').width() - timerElement.width())/2
+      var xoffset = 9
+      timerElement.css('left', xoffset)
+      // var yoffset = ($('#timer').height() - timerElement.height())/2
+      var yoffset = 16
+      timerElement.css('top', yoffset)
+    } 
+  } else {
+    $('#timer').addClass('hide')
+    var timerElement = $('#timer > img')
+    timerElement.remove()
+  }
+}

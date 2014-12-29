@@ -159,8 +159,11 @@ class PangeaWebSocket(WebSocket):
             self.blank_cards()
             self.send_all_seats()
             self.send_message({'player':player_msg})
-                        
-        handlers = {'join':join}
+
+        def fold(ok):
+            self.send_message({'action':{'returnPlayerCards':str(self.player)}})
+            
+        handlers = {'join':join, 'fold':fold}
         for key in message.keys():
             if key in handlers.keys():
                 handler = handlers[key]

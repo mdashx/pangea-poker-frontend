@@ -15,3 +15,9 @@
 {"seats": [{"seat":1, "action":"<span>Fold</span>"}, {"seat":0, "action":""}], "action": {"returnPlayerCards": "1"}}
 
 {"seats": [{"seat":4, "playercards":["AS", "AC"]}]}
+
+{"action":{"returnPlayerCards":1}}
+
+{"game":{"myturn":1}}
+
+{"game": {"pot": [666, 546, 82]}}
