@@ -19,6 +19,7 @@ pangea.Seat = function(seat, avatar, name, stack){
   this.updateCSS()
   this.sitdown()
   this.playercards = null
+  this.bet = ''
 }
 
 pangea.Seat.prototype.setSelectors = function(){
@@ -33,6 +34,7 @@ pangea.Seat.prototype.setSelectors = function(){
   this.select.faceup1 = this.select.seat + " > .card0"
   this.select.faceup2 = this.select.seat + " > .card1"
   this.select.button = '#seat' + String(this.seat) + 'button'
+  this.select.bet = '#stack' + String(this.seat) + 'span'
 }
 
 pangea.Seat.prototype.initcards = function(){
@@ -133,6 +135,56 @@ pangea.Seat.prototype.showCards = function(){
   }
 }
 
+pangea.Seat.prototype.showBet = function(thisseat){
+  function sortChips(a,b){
+    return(a[1] - b[1])
+  }
+
+  function showChips(){
+    var chips1 = [25, 10, 5, 1]
+    var chips2 = [250, 100, 50, 25, 10, 5, 1]
+    var chips3 = [250, 100, 50, 25, 20, 10, 5, 1]
+    var chips4 = [10000, 5000, 2000, 1000, 500, 250, 100, 50, 25, 20, 10, 5, 1]
+    var chipsets = [chips1, chips2, chips3, chips4]
+    var bet = thisseat.bet
+    var betStacks = null
+    function getStacks(thisBet, chips){
+      var thisBetStack = []
+      for (var i=0; i<chips.length; i++){
+        var chipval = chips[i]
+        if (thisBet/chipval > 1){
+          if (Math.floor(thisBet/chipval) > 10){
+            return false
+          }
+          thisBetStack.push([chipval, Math.floor(thisBet/chipval)])
+          thisBet %= chipval
+        }
+      }
+      return thisBetStack
+    }
+
+    for (var k=0; k<chipsets.length; k++){
+      betStacks = getStacks(bet, chipsets[k])
+      if (betStacks != false){break}
+    }
+
+    betStacks.sort(sortChips)
+    betStacks.reverse()
+    for (var j=0; j<betStacks.length && j<5; j++){
+      pangea.playerChips(thisseat.seat, j, betStacks[j][0], betStacks[j][1])
+    }
+  }
+  if (this.bet != ''){
+    $(this.select.bet).text(this.bet)
+    $(this.select.bet).removeClass('hide')
+    showChips()
+  } else {
+    $(this.select.bet).addClass('hide')     
+  }
+}
+
+
+
 pangea.Seat.prototype.update = function(params){
   for (var param in params){
     if (this.hasOwnProperty(param)){
@@ -144,8 +196,11 @@ pangea.Seat.prototype.update = function(params){
   if (this.seat === pangea.player.seat){
     this.player = 1
   } else { this.player = 0}
+  var thisseat = this
   this.updateCSS()
   this.sitdown()
   this.onTheButton()
   this.showCards()
+  $(this.select.action).html(this.action)
+  this.showBet(thisseat)
 }

@@ -10,16 +10,6 @@ pangea.actions.join = function(seatnum){
   pangea.sendMessage(message)
 }
 
-// pangea.initcards = function(){
-//   for (var i=0; i < pangea.seats.length; i++){
-//     var seat = pangea.seats[i]
-//     seat.facedown1 = new pangea.Card(pangea.constants.facedown, seat.select.facedown1, seat)
-//     seat.facedown2 = new pangea.Card(pangea.constants.facedown, seat.select.facedown2, seat)
-//     seat.faceup1 = new pangea.Card(undefined, seat.select.faceup1, seat)
-//     seat.faceup2 = new pangea.Card(undefined, seat.select.faceup2, seat)
-//   }
-// }
-
 pangea.boardcards = []
 
 pangea.initBoardCards = function(){
@@ -49,6 +39,9 @@ pangea.update = function(){
     pangea.gui.addJoinLabel()
   }
   pangea.gui.updatePotAmount()
+  // pangea.gui.hideBetLabels()
+  pangea.gui.tocall()
+  pangea.gui.gametype()
   pangea.gui.playerstack()
   pangea.getTableOrder()
   pangea.gui.showboardcards()
@@ -61,10 +54,18 @@ $('.player-info').hover(
     }},
   function(){
     if ($(this).hasClass('can-sit')){
-    $(this).css('background-color', pangea.constants.emptyseatbg)
+      $(this).css('background-color', pangea.constants.emptyseatbg)
     }
   })
 
+
+$('#fold').click(function(){
+  if (pangea.game.myturn == true){
+    pangea.sendMessage({'action':''})
+  } else {
+    $('#checkbox1').click()
+  }
+})
+
 pangea.init()
 pangea.update()
-

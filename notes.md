@@ -214,3 +214,48 @@ It all works, but I need the server to specify who the dealer is now. So actuall
 I want a function to return all cards left in player's hands, and I don't want to show the animation for players that aren't holding cards, so I'll add a method on the seat to check for images in their card objects, and check that method inside the returnCards method. That way I can call returnCards on the whole table, but it will only show on the seats holding cards.
 
 
+# Mon Dec 22 14:27:22 CST 2014
+
+Fuck, trying to sort out what I'm working on... it's been over a week I think since I've worked on this. Pretty sure I'm gonna just work on getting the chips displayed for the player bets. That means getting a player bet amount from the server, updating the label with the numerical display, then calculating what chips to show, and then animating the chips going into the pot. So while I really want to start with displaying chips, maybe I should start with showing the bet label, and then maybe getting the info from the server, or at least writing the api code to handle the message from the server, and then I can worry about the chips.
+
+Yuck, so hard to get started working in a new place, someone else's house, when I haven't donw any real work in over a week. Gotta make this stuff as simple as possible until I get focused and my brain get's all fired up. Maybe gotta turn of the house music for awhile, it's probably done it's job by now and hopefully I can still get an hour or two of silence before anyone comes home and diturbs me. LOL so hard to turn of Kerri Chandler though. 
+
+- make sure bet label HTML elements are there
+
+ok, idk... the bet labels (called 'stack-label' in the HTML because bet-label is the player's bet in the controls) are hidden if they are empty. I need to add that code into the general update and have the 'hide' class removed if the label is not empty.
+
+ok, done.
+
+Alright, adding a 'bet' property to the Seat object. Need to add a selector for the bet and a method to update it.
+
+Yea... just gonna move the hiding of the bet labels into the seat update, not in the general gui update. 
+
+Alright, got the bet's updating through the API, just by adding the 'bet' property to the seat object. Nice when things work out that way. I'm thinking now that I may place the bet label on top of the chip stack, it might look a lot better. We'll see once I display the chips for the bet.
+
+Ok, I have the playerChips code from the mockup. What I need to do now is have it add in a class name for the seat the chips are at, that way I can remove all of the elements with that classname, once they are moved into the pot... but I don't really need to do that, since all of the chips get moved into the pot and removed at the same time... so really, the playerChips code is probably perfectly fine the way it is, and then I can add code to move all of the playerChips into the pot at the same time. I just need to make sure that I can specify a wide range of chipnum classes, to make use of different denominations.
+
+Now I need to add a constant that sets all of the denominations and the class name for each denomination. Or maybe just make the class name whatever the value is? chip10 chip250 chip5000 chip10000. Yea, that will be good. I'll just put default colors in CSS and leave it at that.
+
+# Sun Dec 28 19:17:24 CST 2014
+
+Working on milestone 3:
+
++ Get opponent bet amounts from server, update GUI
++ Show chips in player stacks based on bet amount
++ Show bet amount in label
++ Animate folded cards
++ Show chips in pot based on pot amount
++ Get opponent action from server
++ Show action in status bar for opponent that just acted
++ Show timer in status bar for opponent in turn 
++ Show pot amount in label
+
+- Show side pot window
+- Send player actions to server (fold, check, bet, raise, call, auto options)
+- Show countdown timer on player's turn
+
+- Control bet amount by slider control
+- Slider control snaps to amounts based on limit/blind, and chip stack
+- Auto controls send action to server on player's turn
+- Check/Bet update to Call/Raise
+

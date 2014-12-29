@@ -11,7 +11,7 @@ class PangeaWebSocket(WebSocket):
         self.default_usernames = ['kuphephaw6','Pantiwx','duvaye62','albogawx','oklepankal6','aikokj','immoseut','dixibelonly1wu','possano9s','claireneubertj9','Schwerinoa','jorsonwa','atheistafghanfa','fliblySnallbr','outflowbs','ege1mee6','hondan87','espasasp4','mietlicada','grasog4q']
         self.usernames = list(self.default_usernames)
         self.playerseat = self.make_empty_player()
-        self.empty_seat = {'empty':1, 'playing':0, 'playercards':None, 'stack':None}
+        self.empty_seat = {'empty':1, 'playing':0, 'playercards':None, 'stack':None, 'action':''}
         self.emptyseats = self.make_empty_seats()
         self.seats = self.emptyseats.copy()
         self.player = None
@@ -115,16 +115,34 @@ class PangeaWebSocket(WebSocket):
                 self.seats[new_seat] = {'name':self.get_player(), 'stack':self.get_stack(), 'empty':0, 'playing':1}
             self.send_all_seats()
 
+        def showbets(yea):
+            for seat in self.seats.keys():
+                if self.seats[seat]['playing'] == 1:
+                    this_bet = random.randint(1,int(self.seats[seat]['stack']))
+                    self.seats[seat]['bet'] = this_bet
+            self.send_all_seats()
+                                        
         def showcards(doesntmatter):
-            print self.seats
             for seat in self.seats.keys():
                 if self.seats[seat]['empty'] != 1:
                     self.seats[seat]['playercards'] = [self.get_card(), self.get_card()]
             self.send_all_seats()
+
+        def potamount(new_amount):
+            self.send_message({'game':{'pot':[str(new_amount)]}})
+
+        def movetopot(yea):
+            self.send_message({'action':{'chipsToPot':0}})
+
+        def movetoplayer(seatnum):
+            self.send_message({'action':{'chipsToPlayer':str(seatnum)}})
+
             
         handlers = {'clearseats':clearseats, 'fillseats':fillseats,
                     'deal1':deal1, 'showcards':showcards, 'deal2':deal2,
-                    'deal3':deal3, 'deal4':deal4}
+                    'deal3':deal3, 'deal4':deal4, 'showbets':showbets,
+                    'potamount':potamount, 'movetopot':movetopot,
+                    'movetoplayer':movetoplayer}
 
         for key in message.keys():
             if key in handlers.keys():
@@ -148,11 +166,14 @@ class PangeaWebSocket(WebSocket):
                 handler = handlers[key]
                 handler(message[key])
             else: self.error(key)
-                
+
+    def echo(self, echo_msg):
+        self.send_message(echo_msg)
+                                
     def received_message(self, message):
         print "Recieved: " + message.data
         message = json.loads(message.data)
-        handlers = {'test':self.test, 'action':self.action}
+        handlers = {'test':self.test, 'action':self.action, 'echo':self.echo}
         for key in message.keys():
             if key in handlers.keys():
                 handler = handlers[key]

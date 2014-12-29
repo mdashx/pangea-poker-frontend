@@ -32,6 +32,7 @@ pangea.API.game = function(gameArray){
       console.log("Property not found ", param)
     }
   }
+  pangea.update()
 }
 
 pangea.API.deal = function(message){
@@ -67,21 +68,29 @@ pangea.API.deal = function(message){
   if (is_holecards){pangea.gui.dealcards()}
   pangea.update()
 }
-
   // if (action == 'holecards'){
   //   pangea.gui.dealcards()
   // }
 
-
 pangea.API.action = function(actionArray){
-  // var handlers = {'deal':pangea.API.deal}
-  // for (var action in actionArray){
-  //   if (actionArray.hasOwnProperty(action)){
-  //     var handler = handlers[action]
-  //     console.log(actionArray[action])
-  //     handler(actionArray[action])
-  //   }
-  // }
+  var handlers = {'chipsToPot':pangea.gui.chipsToPot, 'chipsToPlayer':pangea.gui.chipsToPlayer}
+  // var single_player = [pangea.gui.chipsToPlayer] 
+  for (var action in actionArray){
+    console.log(action)
+    if (actionArray.hasOwnProperty(action)){
+      if (action == 'chipsToPot'){(pangea.gui.chipsToPot())}
+      if (action == 'chipsToPlayer'){
+        pangea.gui.chipsToPlayer(actionArray[action][0])
+      }
+      if (action == 'returnPlayerCards'){
+        var thisseat = actionArray[action][0]
+        pangea.seats[thisseat].returnCards()
+      }
+      if (action == 'returnCards'){
+        pangea.gui.returnCards()
+      }
+    }
+  }
   return true
 }
 

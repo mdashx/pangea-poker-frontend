@@ -32,6 +32,11 @@ function showCards(){
   pangea.sendMessage(JSON.stringify(msg))
 }
 
+function showBets(){
+  var msg = {'test':{'showbets':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
 function deal2(){
   var msg = {'test':{'deal2':''}}
   pangea.sendMessage(JSON.stringify(msg))
@@ -45,6 +50,34 @@ function deal4(){
   pangea.sendMessage(JSON.stringify(msg))
 }
 
+function setPotAmount(){
+  var newPotAmount = $('#newPotAmount').val()
+  var msg = {'test':{'potamount':newPotAmount}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
+function moveToPot(){
+  var msg = {'test':{'movetopot':''}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
+function moveToPlayer(){
+  var toPlayer = $('#toPlayer').val()
+  var msg = {'test':{'movetoplayer':toPlayer}}
+  pangea.sendMessage(JSON.stringify(msg))
+}
+
+function echo(){
+  var echoMsg = $('#echo').val()
+  var jsonMsg = JSON.parse(echoMsg)
+  console.log(jsonMsg)
+  console.log(JSON.stringify({'echo':jsonMsg}))
+  pangea.sendMessage(JSON.stringify({'echo':jsonMsg}))
+  // console.log(echoMsg)
+  // console.log(jsonMsg)
+}
+
+$('#testEcho').click(function(){echo()})
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
 $('#testFillSeats').click(function(){fillSeats()})
 $('#testClearSeats').click(function(){clearSeats()})
@@ -54,6 +87,10 @@ $('#testShowCards').click(function(){showCards()})
 $('#testDeal2').click(function(){deal2()})
 $('#testDeal3').click(function(){deal3()})
 $('#testDeal4').click(function(){deal4()})
+$('#testShowBets').click(function(){showBets()})
+$('#testPotAmount').click(function(){setPotAmount()})
+$('#testMoveToPot').click(function(){moveToPot()})
+$('#testMoveToPlayer').click(function(){moveToPlayer()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]
 

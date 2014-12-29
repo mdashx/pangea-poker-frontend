@@ -1,0 +1,17 @@
+'{"game": {"pot": "666"}}'
+
+'{"test": {"fillseats": 1}}'''
+
+'{"seats": [{"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 0}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 1}, {"player": 1, "name": "LauraP", "playercards": null, "playing": 1, "stack": 954.22, "empty": 0, "seat": 2}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 3}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 4}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 5}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 6}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 7}, {"playing": 0, "playercards": null, "stack": null, "empty": 1, "seat": 8}]}'
+
+'{"test":{"fillseats":2}}'
+
+{"seats": [{"playing": 1, "playercards": null, "stack": null, "empty": 0, "seat": 0, "name":"snoop", "stack":499.99}]}
+
+{"seats": [{"seat":0, "action":"<center><img src='./images/countdown10.gif'></center>"}]}
+
+{"seats": [{"seat":0, "action":"<span>Fold</span>"}]}
+
+{"seats": [{"seat":1, "action":"<span>Fold</span>"}, {"seat":0, "action":""}], "action": {"returnPlayerCards": "1"}}
+
+{"seats": [{"seat":4, "playercards":["AS", "AC"]}]}

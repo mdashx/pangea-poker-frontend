@@ -46,10 +46,10 @@ pangea.gui.updatePotAmount = function(){
 
 pangea.gui.tocall = function(){
   var selector = '#tocall'
-  if (pangea.table.tocall === undefined){
+  if (pangea.game.tocall === undefined){
     $(selector).text('To call: 0')
   } else {
-    $(selector).text('To call: ' + pangea.table.tocall)
+    $(selector).text('To call: ' + pangea.game.tocall)
   }
 }
 
@@ -59,6 +59,13 @@ pangea.gui.playerstack = function(){
     $(selector).text('Stack: 0')
   } else {
     $(selector).text('Stack: ' + pangea.player.stack)
+  }
+}
+
+pangea.gui.gametype = function(){
+  var selector = '#gametype'
+  if (pangea.game.gametype != undefined){
+    $(selector).html(pangea.game.gametype)
   }
 }
 
@@ -102,8 +109,78 @@ pangea.gui.returnCards = function(){
     pangea.seats[seat].returnCards()
   }
   for (var card in pangea.boardcards){
-    // console.log(card)
-    // console.log(pangea.boardcards[card])
     pangea.boardcards[card].returnCard()
   }
 }
+
+pangea.gui.showPotChips = function(potnum){
+  function sortChips(a,b){
+    return(a[1] - b[1])
+  }
+  var chips1 = [25, 10, 5, 1]
+  var chips2 = [250, 100, 50, 25, 10, 5, 1]
+  var chips3 = [250, 100, 50, 25, 20, 10, 5, 1]
+  var chips4 = [10000, 5000, 2000, 1000, 500, 250, 100, 50, 25, 20, 10, 5, 1]
+  var chipsets = [chips1, chips2, chips3, chips4]
+  var potAmount = pangea.game.pot[potnum]
+  var potStacks = null
+  function getStacks(thisPot, chips){
+    var thisPotStack = []
+    for (var i=0; i<chips.length; i++){
+      var chipval = chips[i]
+      if (thisPot/chipval > 1){
+        if (Math.floor(thisPot/chipval) > 10){
+          return false
+        }
+        thisPotStack.push([chipval, Math.floor(thisPot/chipval)])
+        thisPot %= chipval
+      }
+    }
+    return thisPotStack
+  }
+  for (var k=0; k<chipsets.length; k++){
+    potStacks = getStacks(potAmount, chipsets[k])
+    if (potStacks != false){break}
+  }
+  potStacks.sort(sortChips)
+  potStacks.reverse()
+  for (var j=0; j<potStacks.length && j<5; j++){
+    pangea.potChips(potnum, j, potStacks[j][0], potStacks[j][1])
+  }
+}
+
+pangea.gui.chipsToPot = function(){
+  var potCenter = [390, 280]
+  $('.chip').animate(
+    {'left':potCenter[0], 'top':potCenter[1]},
+    700, function(){
+           $('.chip').remove()
+           for (var i=0; i<pangea.game.pot.length && i<3; i++){
+              pangea.gui.showPotChips(i)    
+            }
+          })
+  for (var j=0; j<pangea.seats.length; j++){
+    pangea.seats[j].bet = 0
+  }
+  pangea.update()
+}
+
+pangea.gui.chipsToPlayer = function(seatnum){
+  var p0 = pangea.constants.p0
+  var p1 = pangea.constants.p1
+  var p2 = pangea.constants.p2
+  var p3 = pangea.constants.p3
+  var p4 = pangea.constants.p4
+  var p5 = pangea.constants.p5
+  var p6 = pangea.constants.p6
+  var p7 = pangea.constants.p7
+  var p8 = pangea.constants.p8
+  var players = Array(p0, p1, p2, p3, p4, p5, p6, p7, p8)
+  var potCenter = players[seatnum][0]
+  $('.chip').animate(
+    {'left':potCenter[0], 'top':potCenter[1]},
+    600, function(){
+            $('.chip').remove()
+          })
+}
+
