@@ -67,7 +67,7 @@ Player Actions / Betting:
 
 - Get opponent action from server
 - Show action in status bar for opponent that just acted
-- Show timer in status bar for opponent in turn 
+- Show timer in status bar for opponent in turn
 - Get opponent bet amounts from server, update GUI
 - Show chips in player stacks based on bet amount
 - Show bet amount in label

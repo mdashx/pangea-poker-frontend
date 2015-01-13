@@ -8,13 +8,27 @@
 
 {"seats": [{"playing": 1, "playercards": null, "stack": null, "empty": 0, "seat": 0, "name":"snoop", "stack":499.99}]}
 
-{"seats": [{"seat":0, "action":"<center><img src='./images/countdown10.gif'></center>"}]}
+{"seats": [{"seat":7, "action":"<center><img src='./images/countdown10.gif?01'></center>"}]}
 
-{"seats": [{"seat":0, "action":"<span>Fold</span>"}]}
+{"seats": [{"seat":7, "action":"<span>Fold</span>"}, {"seat":6, "action":""}]}
 
-{"seats": [{"seat":1, "action":"<span>Fold</span>"}, {"seat":0, "action":""}], "action": {"returnPlayerCards": "1"}}
+{"seats": [{"seat":7, "action":"<span>Call<br>454</span>"}]}
+
+{"seats": [{"seat":7, "action":"<span>Call<br>454</span>"}, {"seat":6, "action":""}]}
+
+{"seats": [{"seat":6, "bet":"666"}]}
+
+{"seats": [{"seat":7, "action":""}]}
+
+{"seats": [{"seat":1, "action":"<span>Fold</span>"}, {"seat":6, "action":""}], "action": {"returnPlayerCards": "1"}}
+
+{"action": {"returnPlayerCards": "2"}}
+
+{"seats": [{"seat":7, "action":"<span>Call<br>6</span>"}, {"seat":6, "action":""}]}
 
 {"seats": [{"seat":4, "playercards":["AS", "AC"]}]}
+
+{"seats": [{"seat":4, "stack":"360"}]}
 
 {"action":{"returnPlayerCards":1}}
 

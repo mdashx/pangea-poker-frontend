@@ -75,9 +75,10 @@ $('#fold').click(function(){
   }
 })
 
-$('#click').click(function(){
+$('#check').click(function(){
+  var thisBet = pangea.game.tocall
   if (pangea.game.myturn == 1){
-    pangea.sendMessage({'action':{'check':'1'}})
+    pangea.sendMessage({'action':{'bet':thisBet}})
   }
 })
 
