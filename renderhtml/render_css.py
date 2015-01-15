@@ -135,5 +135,3 @@ seat_sizes(seats, cssrules)
 player_cards(seats, cssrules)
 stack_labels(seats, seat_coords, cssrules)
 render_css(cssrules)
-
-

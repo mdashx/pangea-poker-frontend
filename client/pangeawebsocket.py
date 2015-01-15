@@ -150,7 +150,6 @@ class PangeaWebSocket(WebSocket):
                 handler(message[key])
             else: self.error(key)
 
-            
     def action(self, message):
         def join(seat):
             self.player = seat
@@ -172,11 +171,14 @@ class PangeaWebSocket(WebSocket):
 
     def echo(self, echo_msg):
         self.send_message(echo_msg)
-                                
+
+    def chat(self, chat_msg):
+        self.send_message({'chat':[chat_msg]})
+        
     def received_message(self, message):
         print "Recieved: " + message.data
         message = json.loads(message.data)
-        handlers = {'test':self.test, 'action':self.action, 'echo':self.echo}
+        handlers = {'test':self.test, 'action':self.action, 'echo':self.echo, 'chat':self.chat}
         for key in message.keys():
             if key in handlers.keys():
                 handler = handlers[key]

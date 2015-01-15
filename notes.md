@@ -257,6 +257,7 @@ Working on milestone 3:
 + Show countdown timer on player's turn
 + Show side pot window
 
+# Tue Jan 13 17:57:08 CST 2015
 
-
-
+Add chat API to pangea
+^^ ok done, now to send outgoing message to the server and create a function in the mock server to send them back through the chat API

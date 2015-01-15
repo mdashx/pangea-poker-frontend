@@ -315,40 +315,29 @@ input[type=checkbox] {
     position:absolute;
 }
 
-.chip1 {background-color:#3357A5;}
-/* .chip2 {background-color:;} */
-/* .chip3 {background-color:#007c00;} */
-/* .chip4 {background-color:#551255;} */
-.chip5 {background-color:#ff0000;}
-.chip10 {background-color:#0000ff;}
-.chip20 {background-color:#7E7E7E;}
-.chip25 {background-color:#007c00;}
-.chip50 {background-color:#FF9100;}
-.chip100 {background-color:#760000;}
-.chip250 {background-color:#FF468C;}
-.chip500 {background-color:#551255;}
-.chip1000 {background-color:#76E400;}
-.chip2000 {background-color:#00B1D0;}
-.chip5000 {background-color:#B85400;}
-.chip10000 {background-color:#EF08FF;}
+.chip1 {background-color:#ff0000;}
+.chip2 {background-color:#0000ff;}
+.chip3 {background-color:#007c00;}
+.chip4 {background-color:#551255;}
+.chip5 {background-color:#00B1D0;}
 
-#testchip {
-    position:absolute;
-    top:300px;
-    left:300px;
-}
+/* #testchip { */
+/*     position:absolute; */
+/*     top:300px; */
+/*     left:300px; */
+/* } */
 
-#testchip2 {
-    position:absolute;
-    top:298px;
-    left:300px;
-}
+/* #testchip2 { */
+/*     position:absolute; */
+/*     top:298px; */
+/*     left:300px; */
+/* } */
 
-#testchip3 {
-    position:absolute;
-    top:296px;
-    left:300px;
-}
+/* #testchip3 { */
+/*     position:absolute; */
+/*     top:296px; */
+/*     left:300px; */
+/* } */
 
 #infobox {
     background:#000;
@@ -378,7 +367,7 @@ input[type=checkbox] {
     width:295px;
     position:absolute;
     top:30px;
-    padding-left:8px;
+    padding-left:3px;
     color:#fff;
     font-family:Helvetica, Arial, sans-serif;
     line-height:14px;
@@ -623,3 +612,164 @@ input[type=checkbox] {
     border-width:2px;
     border-radius:25px;
 }
+
+#poker-room {
+  background-image:url('./images/bg.png');
+}
+
+#seat-0 {
+  top:18.8259221535px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:513.524208699px;
+}
+
+#seat-1 {
+  top:111.422367183px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:664.600452377px;
+}
+
+#seat-2 {
+  top:268.577632817px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:664.600452377px;
+}
+
+#seat-3 {
+  top:351.867615095px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:534.50174937px;
+}
+
+#seat-4 {
+  top:363.867615095px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:347.5px;
+}
+
+#seat-5 {
+  top:351.867615095px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:160.49825063px;
+}
+
+#seat-6 {
+  top:268.577632817px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:30.3995476231px;
+}
+
+#seat-7 {
+  top:111.422367183px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:30.3995476231px;
+}
+
+#seat-8 {
+  top:18.8259221535px;
+  min-width:105;
+  height:80;
+  width:105;
+  min-height:80;
+  left:181.475791301px;
+}
+
+.faceup > img {
+  width:150px;
+}
+
+.card0 {
+  top:12px;
+  left:15px;
+}
+
+.card1 {
+  top:25px;
+  left:40px;
+}
+
+#stack0 {
+  top:101.825922154;
+  left:513.524208699;
+}
+
+#stack1 {
+  top:194.422367183;
+  left:664.600452377;
+}
+
+#stack2 {
+  top:351.577632817;
+  left:664.600452377;
+}
+
+#stack3 {
+  top:339.867615095;
+  left:534.50174937;
+}
+
+#stack4 {
+  top:351.867615095;
+  left:347.5;
+}
+
+#stack5 {
+  top:339.867615095;
+  left:160.49825063;
+}
+
+#stack6 {
+  top:256.577632817;
+  left:30.3995476231;
+}
+
+#stack7 {
+  top:99.4223671834;
+  left:30.3995476231;
+}
+
+#stack8 {
+  top:101.825922154;
+  left:181.475791301;
+}
+
+.chip1 {background-color:#3357A5;}
+/* .chip2 {background-color:;} */
+/* .chip3 {background-color:#007c00;} */
+/* .chip4 {background-color:#551255;} */
+.chip5 {background-color:#ff0000;}
+.chip10 {background-color:#0000ff;}
+.chip20 {background-color:#7E7E7E;}
+.chip25 {background-color:#007c00;}
+.chip50 {background-color:#FF9100;}
+.chip100 {background-color:#760000;}
+.chip250 {background-color:#FF468C;}
+.chip500 {background-color:#551255;}
+.chip1000 {background-color:#76E400;}
+.chip2000 {background-color:#00B1D0;}
+.chip5000 {background-color:#B85400;}
+.chip10000 {background-color:#EF08FF;}

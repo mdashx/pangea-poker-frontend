@@ -103,4 +103,11 @@ pangea.API.checkAutoControls = function(){
     }
   }
 }
-  
+
+pangea.API.chat = function(messages){
+  var chatbox = $('#chatbox')
+  for (var i=0; i< messages.length; i++) {
+    chatbox.append(messages[i])
+    chatbox.append('<br>')
+  }
+}

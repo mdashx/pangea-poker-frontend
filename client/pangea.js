@@ -89,5 +89,21 @@ $('#bet').click(function(){
   }
 })
 
+pangea.sendChat = function(){
+  var chatMessage = $('#chat-input > input').val()
+  pangea.sendMessage({'chat':chatMessage})
+  $('#chat-input > input').val('')  
+}
+
+$('#submitchat').click(function(){
+  pangea.sendChat()
+})
+
+pangea.chatKeyPress = function(){
+ if(window.event.keyCode==13){
+   pangea.sendChat()
+ }
+}
+
 pangea.init()
 pangea.update()
