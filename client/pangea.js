@@ -105,5 +105,18 @@ pangea.chatKeyPress = function(){
  }
 }
 
+$('#settings').click(function(){
+  $('#options-window').toggleClass('hide')
+})
+
+$('#options-cancel').click(function(){
+  $('#options-window').toggleClass('hide')
+})
+
+$('#options-confirm').click(function(){
+  $('#options-window').toggleClass('hide')
+})
+
+
 pangea.init()
 pangea.update()

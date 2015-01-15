@@ -767,3 +767,50 @@ input[type=checkbox] {
   top:101.825922154;
   left:181.475791301;
 }
+
+#options-window {
+    position:absolute;
+    top:70;
+    left:300;
+    width:200px;
+    min-height:300px;
+    background:#e4e4e4;
+    border-width:5px;
+    border-style:solid;
+    border-color:#737373;
+    z-index:50;
+}
+
+.options-btn {
+    height:22px;
+    width:80px;
+    line-height:22px;
+    font-size:18px;
+    font-family:Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    text-align:center;
+    background:#737373;
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    border-style:solid;
+    border-color:#000;
+    border-width:1px;
+}
+
+.options-btn:hover {
+    background:#000;
+    cursor:hand;
+}
+
+#options-cancel {
+    position:absolute;
+    left:13px;
+    top:272px
+}
+
+#options-confirm {
+    position:absolute;
+    left:107px;
+    top:272px;
+}
