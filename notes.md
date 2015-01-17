@@ -261,3 +261,16 @@ Working on milestone 3:
 
 Add chat API to pangea
 ^^ ok done, now to send outgoing message to the server and create a function in the mock server to send them back through the chat API
+
+# Fri Jan 16 02:04:31 CST 2015
+
+Alright so the next thing to do is enable various options and GUI modifications. I added the options window the other night and made the various buttons hide/show the window, now I need to add checkboxes/controls for options and make them actually work.
+
+I might need to go back through my notes to make sure I don't miss anything, but I'll try to list some off of the top of my head, and I'll definitely start with changing the table felt color to green or black.
+
+- Change table felt (green/black)
+- Change poker room background
+- Hide chips
+- Hide chat
+- Custom bet amount buttons
+- Switch decks (4 color deck, etc)
