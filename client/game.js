@@ -16,6 +16,20 @@ pangea.dealer = undefined
 pangea.tableOrder = [0,1,2,3,4,5,6,7,8]
 pangea.cards = []
 
+pangea.options = {
+  'tablefelt':'black',
+  'showChips':1,
+  'showChat':1,
+  'showSeats':1
+}
+
+pangea.oldOptions = {
+  'tablefelt':'black',
+  'showChips':1,
+  'showChat':1,
+  'showSeats':1
+}
+
 for (var card in pangea.deck){
   if (pangea.deck.hasOwnProperty(card)){
     pangea.cards.push(card)

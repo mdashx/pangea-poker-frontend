@@ -274,3 +274,7 @@ I might need to go back through my notes to make sure I don't miss anything, but
 - Hide chat
 - Custom bet amount buttons
 - Switch decks (4 color deck, etc)
+
+# Sat Jan 17 16:57:04 CST 2015
+
+Ugh, sometimes I have options called 'options' and sometimes called 'settings'. When I get around to refactoring, I need to get the naming consistent.

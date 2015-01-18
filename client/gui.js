@@ -192,8 +192,8 @@ pangea.gui.chipsToPlayer = function(seatnum){
   $('.chip').animate(
     {'left':potCenter[0], 'top':potCenter[1]},
     600, function(){
-            $('.chip').remove()
-          })
+           $('.chip').remove()
+         })
 }
 
 pangea.gui.betSlider = function(){
@@ -238,5 +238,58 @@ pangea.gui.timer = function(){
     $('#timer').addClass('hide')
     var timerElement = $('#timer > img')
     timerElement.remove()
+  }
+}
+
+pangea.gui.optionHandlers = {
+  'tablefelt':function(feltColor){
+    if (feltColor == 'black'){
+      $('#poker-room').css('background-image', "url('./images/bg.png')")
+    }
+    if (feltColor == 'green'){
+      $('#poker-room').css('background-image', "url('./images/bg-green.png')")
+    }
+  },
+  'showChips':function(bool){
+    if (bool == 1){
+      $('.chip').removeClass('hide')
+    }
+    if (bool == 0){
+      $('.chip').addClass('hide')
+    }
+  },
+  'showChat':function(bool){
+    if (bool == 1){
+      $('#chatbox').removeClass('hide')
+    }
+    if (bool == 0){
+      $('#chatbox').addClass('hide')
+    }
+  },
+  'showSeats':function(bool){
+    // if (bool == 1){
+    //   $('.empty-seat').show()
+    // }
+    // if (bool == 0){
+    //   $('.empty-seat').hide()
+    // }
+  }
+}
+
+pangea.gui.hideSeats = function(){
+  if (pangea.options.showSeats == 0){
+    $('.player-info').show()
+    $('.empty-seat').hide()
+  }
+}
+
+pangea.gui.updateOptions = function(){
+  for (var key in pangea.options){
+    if (pangea.options[key] != pangea.oldOptions[key]){
+      // console.log("Option changed: " + String(pangea.options[key]))
+      var handler = pangea.gui.optionHandlers[key]
+      handler(pangea.options[key])
+      pangea.oldOptions[key] = pangea.options[key]
+    }
   }
 }

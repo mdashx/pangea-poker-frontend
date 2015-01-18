@@ -38,6 +38,8 @@ pangea.update = function(){
   }  else {
     pangea.gui.addJoinLabel()
   }
+  pangea.gui.updateOptions()
+  pangea.gui.hideSeats()
   pangea.gui.updatePotAmount()
   // pangea.gui.hideBetLabels()
   pangea.gui.tocall()
@@ -105,6 +107,13 @@ pangea.chatKeyPress = function(){
  }
 }
 
+pangea.optionSelectors = {
+  'tablefelt':'#table-felt',
+  'showChips':'#show-chips',
+  'showChat':'#show-chat',
+  'showSeats':'#show-seats'
+}
+
 $('#settings').click(function(){
   $('#options-window').toggleClass('hide')
 })
@@ -114,9 +123,14 @@ $('#options-cancel').click(function(){
 })
 
 $('#options-confirm').click(function(){
+  for (var key in pangea.optionSelectors){
+    var selector = pangea.optionSelectors[key]
+    var thisValue = $(selector).val()
+    pangea.options[key] = thisValue
+    pangea.update()
+  }
   $('#options-window').toggleClass('hide')
 })
-
 
 pangea.init()
 pangea.update()
