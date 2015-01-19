@@ -21,7 +21,11 @@ pangea.options = {
   'showChips':1,
   'showChat':1,
   'showSeats':1,
-  'showCustom':0
+  'showCustom':0,
+  'custom1':'5%',
+  'custom2':'25%',
+  'custom3':'50%',
+  'custom4':'100%'
 }
 
 pangea.oldOptions = {
@@ -29,7 +33,11 @@ pangea.oldOptions = {
   'showChips':1,
   'showChat':1,
   'showSeats':1,
-  'showCustom':0
+  'showCustom':0,
+  'custom1':'5%',
+  'custom2':'25%',
+  'custom3':'50%',
+  'custom4':'100%'
 }
 
 for (var card in pangea.deck){

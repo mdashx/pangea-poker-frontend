@@ -112,7 +112,11 @@ pangea.optionSelectors = {
   'showChips':'#show-chips',
   'showChat':'#show-chat',
   'showSeats':'#show-seats',
-  'showCustom':'#show-custom'
+  'showCustom':'#show-custom',
+  'custom1':'#bet-option-1',
+  'custom2':'#bet-option-2',
+  'custom3':'#bet-option-3',
+  'custom4':'#bet-option-4'
 }
 
 $('#settings').click(function(){
@@ -131,6 +135,31 @@ $('#options-confirm').click(function(){
     pangea.update()
   }
   $('#options-window').toggleClass('hide')
+})
+
+$('.custom-bet-btn').click(function(){
+  function getBetAmount(customVal){
+    var percent_re=/\d+%/i
+    // http://stackoverflow.com/questions/9011524/javascript-regexp-number-only-check
+    var onlydigits_re= /^-?\d+\.?\d*$/
+      var betPercent = customVal.match(percent_re)
+    if (betPercent != null){
+      var betAmount = betPercent[0].replace("%", "")
+      betAmount = parseFloat(betAmount) * .01
+      betAmount = (pangea.player.stack * betAmount).toFixed(2)
+      return betAmount
+    }
+    var betAmount = customVal.match(onlydigits_re)
+    if (betAmount != null){
+      return betAmount[0]
+    }
+    return null
+  }
+  var customVal = $(this).html()
+  var betAmount = getBetAmount(customVal)
+  if (betAmount != null){
+    $('#bet-amount').val(betAmount)
+  }
 })
 
 pangea.init()

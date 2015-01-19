@@ -12,6 +12,7 @@ pangea.gui.addJoinLabel = function(){
   $('#bet_slider').addClass('hide')
   $('#bet-amount').addClass('hide')
   $('#bet-label').addClass('hide')
+  $('.custom-bet-btn').addClass('hide')
   $('#autocontrols').addClass('hide')
   if ($('#join-label').length == 0){
     var joinLabel = $('<div id="join-label">Choose a seat to join the table.</div>')
@@ -30,6 +31,7 @@ pangea.gui.addPlayerControls = function(){
   $('#bet-amount').removeClass('hide')
   $('#bet-label').removeClass('hide')
   $('#autocontrols').removeClass('hide')
+  $('.custom-bet-btn').removeClass('hide')
 }
 
 pangea.gui.centerPotAmount = function(){
@@ -241,6 +243,12 @@ pangea.gui.timer = function(){
   }
 }
 
+pangea.gui.setCustomBet = function(selector, betAmount){
+  if (betAmount != ""){
+    $(selector).html(betAmount)    
+  }
+}
+
 pangea.gui.optionHandlers = {
   'tablefelt':function(feltColor){
     if (feltColor == 'black'){
@@ -267,12 +275,6 @@ pangea.gui.optionHandlers = {
     }
   },
   'showSeats':function(bool){
-    // if (bool == 1){
-    //   $('.empty-seat').show()
-    // }
-    // if (bool == 0){
-    //   $('.empty-seat').hide()
-    // }
   },
   'showCustom':function(bool){
     if (bool == 1){
@@ -281,6 +283,18 @@ pangea.gui.optionHandlers = {
     if (bool == 0){
       $('.custom-bet-btn').addClass('hide')
     }
+  },
+  'custom1':function(betAmount){
+    pangea.gui.setCustomBet('#custom-bet-1', betAmount)
+  },
+  'custom2':function(betAmount){
+    pangea.gui.setCustomBet('#custom-bet-2', betAmount)
+  },
+  'custom3':function(betAmount){
+    pangea.gui.setCustomBet('#custom-bet-3', betAmount)
+  },
+  'custom4':function(betAmount){
+    pangea.gui.setCustomBet('#custom-bet-4', betAmount)
   }
 }
 

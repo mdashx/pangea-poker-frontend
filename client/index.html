@@ -161,45 +161,65 @@
       <div class="boardcard" id="card-3"></div>
       <div class="boardcard" id="card-4"></div>
       <div id="options-window" class="hide">
-	<center>
-	  <table>
-	    <tr><td>
-		Table Felt:
-	      </td><td>
-		<select id="table-felt" name="select-table-felt">
-		  <option value="black">Black</option>
-		  <option value="green">Green</option>
-		</select>
-	    </td></tr><tr><td>
-		Show Chips:
-	      </td><td>
-		<select id="show-chips" name="select-show-chips">
-		  <option value="1">Show</option>
-		  <option value="0">Hide</option>
-		</select>
-	    </td></tr><tr><td>
-		Show Chat:
-	      </td><td>
-		<select id="show-chat" name="select-show-chat">
-		  <option value="1">Show</option>
-		  <option value="0">Hide</option>
-		</select>
-	    </td></tr><tr><td>
-		Empty Seats:
-	      </td><td>
-		<select id="show-seats" name="select-show-seats">
-		  <option value="1">Show</option>
-		  <option value="0">Hide</option>
-		</select>
-	    </td></tr><tr><td>
-		Custom Bets:
-	      </td><td>
-		<select id="show-custom" name="select-show-custom">
-		  <option value="0">Hide</option>
-		  <option value="1">Show</option>
-	    </td></tr>
-	  </table>
-	</center>
+	<div id="options-container">
+	  <center>
+	    <table>
+	      <tr><td>
+		  Table Felt:
+		</td><td>
+		  <select id="table-felt" name="select-table-felt">
+		    <option value="black">Black</option>
+		    <option value="green">Green</option>
+		  </select>
+	      </td></tr><tr><td>
+		  Show Chips:
+		</td><td>
+		  <select id="show-chips" name="select-show-chips">
+		    <option value="1">Show</option>
+		    <option value="0">Hide</option>
+		  </select>
+	      </td></tr><tr><td>
+		  Show Chat:
+		</td><td>
+		  <select id="show-chat" name="select-show-chat">
+		    <option value="1">Show</option>
+		    <option value="0">Hide</option>
+		  </select>
+	      </td></tr><tr><td>
+		  Empty Seats:
+		</td><td>
+		  <select id="show-seats" name="select-show-seats">
+		    <option value="1">Show</option>
+		    <option value="0">Hide</option>
+		  </select>
+	      </td></tr><tr><td>
+		  Custom Bets:
+		</td><td>
+		  <select id="show-custom" name="select-show-custom">
+		    <option value="0">Hide</option>
+		    <option value="1">Show</option>
+	      </td></tr><tr><td>
+		  Bet 1: 
+		</td><td>
+		  <input type="text" id="bet-option-1" size="5"> 
+	      </td></tr><tr><td>
+		  Bet 2:
+		</td><td>
+		  <input type="text" id="bet-option-2" size="5"> 
+	      </td></tr><tr><td>
+		  Bet 3:
+		</td><td>
+		  <input type="text" id="bet-option-3" size="5"> 
+	      </td></tr><tr><td>
+		  Bet 4:
+		</td><td>
+		  <input type="text" id="bet-option-4" size="5"> 
+	      </td></tr><tr><td>
+		  
+	      </td></tr>
+	    </table>
+	  </center>
+	</div> <!-- /options-container -->
 	<div id="options-cancel" class="options-btn">Cancel</div>
 	<div id="options-confirm" class="options-btn">Ok</div>
       </div>

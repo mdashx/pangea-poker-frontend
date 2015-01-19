@@ -862,3 +862,7 @@ input[type=checkbox] {
     top:555px;
     left:338px;
 }
+
+#options-container {
+    overflow-y:scroll;
+}
