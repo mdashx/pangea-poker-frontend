@@ -111,7 +111,8 @@ pangea.optionSelectors = {
   'tablefelt':'#table-felt',
   'showChips':'#show-chips',
   'showChat':'#show-chat',
-  'showSeats':'#show-seats'
+  'showSeats':'#show-seats',
+  'showCustom':'#show-custom'
 }
 
 $('#settings').click(function(){

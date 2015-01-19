@@ -20,14 +20,16 @@ pangea.options = {
   'tablefelt':'black',
   'showChips':1,
   'showChat':1,
-  'showSeats':1
+  'showSeats':1,
+  'showCustom':0
 }
 
 pangea.oldOptions = {
   'tablefelt':'black',
   'showChips':1,
   'showChat':1,
-  'showSeats':1
+  'showSeats':1,
+  'showCustom':0
 }
 
 for (var card in pangea.deck){

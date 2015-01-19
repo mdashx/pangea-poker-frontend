@@ -273,6 +273,14 @@ pangea.gui.optionHandlers = {
     // if (bool == 0){
     //   $('.empty-seat').hide()
     // }
+  },
+  'showCustom':function(bool){
+    if (bool == 1){
+      $('.custom-bet-btn').removeClass('hide')
+    }
+    if (bool == 0){
+      $('.custom-bet-btn').addClass('hide')
+    }
   }
 }
 
