@@ -16,6 +16,8 @@ pangea.makedeck.makesymbols = function(){
 pangea.makedeck.makesymbols()
 
 pangea.deck1 = {}
+pangea.deck2 = {}
+
 pangea.makedeck.deck1 = function(){
   var prefix = './images/cards/'
   var suffix = '-150.png'
@@ -25,5 +27,16 @@ pangea.makedeck.deck1 = function(){
   }
 }
 
+pangea.makedeck.deck2 = function(){
+  var prefix = './images/4color/'
+  var suffix = '-150.png'
+  for (var i=0; i < pangea.makedeck.symbols.length; i++){
+    var filename = prefix + pangea.makedeck.symbols[i] + suffix
+    pangea.deck2[pangea.makedeck.symbols[i]] = filename
+  }
+}
+
 pangea.makedeck.deck1()
+pangea.makedeck.deck2()
+
 pangea.deck = pangea.deck1

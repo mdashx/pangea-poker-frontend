@@ -278,3 +278,21 @@ I might need to go back through my notes to make sure I don't miss anything, but
 # Sat Jan 17 16:57:04 CST 2015
 
 Ugh, sometimes I have options called 'options' and sometimes called 'settings'. When I get around to refactoring, I need to get the naming consistent.
+
+# Mon Jan 19 15:37:32 CST 2015
+
+Okay, everything is pretty much done. All that's left is the 4 color deck and the 2/6 seat layouts.
+
+Before I get to that, I'm gonna script a couple hands of poker to demonstrate the API. I'll just create another websocket module for server.py to use. Instead of it handling different types of input, I'll have it just wait for a "next" command and keep sending pre-arranged game info through the API.
+
+The first example will not have an active player, it will just be observing the table.
+
+- seat players
+- deal hole cards
+- bet (some players fold, chips to pot)
+- deal flop
+- bet (some players fold, chips to pot)
+- deal turn
+- bet (some players fold, chips to pot)
+- deal river
+- showdown (some player muck)

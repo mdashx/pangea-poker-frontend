@@ -25,7 +25,8 @@ pangea.options = {
   'custom1':'5%',
   'custom2':'25%',
   'custom3':'50%',
-  'custom4':'100%'
+  'custom4':'100%',
+  'chooseDeck':'normal'
 }
 
 pangea.oldOptions = {
@@ -37,7 +38,8 @@ pangea.oldOptions = {
   'custom1':'5%',
   'custom2':'25%',
   'custom3':'50%',
-  'custom4':'100%'
+  'custom4':'100%',
+  'chooseDeck':'normal'
 }
 
 for (var card in pangea.deck){

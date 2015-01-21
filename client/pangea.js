@@ -116,7 +116,8 @@ pangea.optionSelectors = {
   'custom1':'#bet-option-1',
   'custom2':'#bet-option-2',
   'custom3':'#bet-option-3',
-  'custom4':'#bet-option-4'
+  'custom4':'#bet-option-4',
+  'chooseDeck':'#choose-deck'
 }
 
 $('#settings').click(function(){

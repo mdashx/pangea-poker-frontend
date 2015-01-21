@@ -88,6 +88,10 @@ function myTurn(){
   pangea.sendMessage(JSON.stringify({'echo':jsonMsg}))
 }
 
+function testNext(){
+  pangea.sendMessage(JSON.stringify('next'))
+}
+
 $('#testEcho').click(function(){echo()})
 $('#testCloseWebSocket').click(function(){closeWebSocket()})
 $('#myTurn').click(function(){myTurn()})
@@ -103,6 +107,7 @@ $('#testShowBets').click(function(){showBets()})
 $('#testPotAmount').click(function(){setPotAmount()})
 $('#testMoveToPot').click(function(){moveToPot()})
 $('#testMoveToPlayer').click(function(){moveToPlayer()})
+$('#testNext').click(function(){testNext()})
 
 var testseats = [{"stack": 101.95, "name": "albogawx", "seat": 0, "empty":0}]
 

@@ -31,7 +31,7 @@ pangea.gui.addPlayerControls = function(){
   $('#bet-amount').removeClass('hide')
   $('#bet-label').removeClass('hide')
   $('#autocontrols').removeClass('hide')
-  $('.custom-bet-btn').removeClass('hide')
+  // $('.custom-bet-btn').removeClass('hide')
 }
 
 pangea.gui.centerPotAmount = function(){
@@ -249,6 +249,22 @@ pangea.gui.setCustomBet = function(selector, betAmount){
   }
 }
 
+pangea.gui.refreshImages = function(){
+  var allImages = $('img')
+  for (var i=0; i < allImages.length; i++){
+    var thisImg = allImages[i]
+    var thisSrc = $(thisImg).attr('src')
+    if (pangea.deck == pangea.deck1){
+      thisSrc = thisSrc.replace('4color', 'cards')
+      $(thisImg).attr('src', thisSrc)
+    }
+    if (pangea.deck == pangea.deck2){
+      thisSrc = thisSrc.replace('cards', '4color')
+      $(thisImg).attr('src', thisSrc)
+    }
+  }
+}
+
 pangea.gui.optionHandlers = {
   'tablefelt':function(feltColor){
     if (feltColor == 'black'){
@@ -295,8 +311,14 @@ pangea.gui.optionHandlers = {
   },
   'custom4':function(betAmount){
     pangea.gui.setCustomBet('#custom-bet-4', betAmount)
-  }
+  },
+  'chooseDeck':function(whichDeck){
+    var theDecks = {'normal':pangea.deck1, 'fourcolor':pangea.deck2}
+    pangea.deck = theDecks[whichDeck]
+    pangea.gui.refreshImages()
+  } 
 }
+
 
 pangea.gui.hideSeats = function(){
   if (pangea.options.showSeats == 0){
