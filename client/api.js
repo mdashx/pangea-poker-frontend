@@ -68,13 +68,14 @@ pangea.API.deal = function(message){
   if (is_holecards){pangea.gui.dealcards()}
   pangea.update()
 }
-  // if (action == 'holecards'){
-  //   pangea.gui.dealcards()
-  // }
 
 pangea.API.action = function(actionArray){
   var handlers = {'chipsToPot':pangea.gui.chipsToPot, 'chipsToPlayer':pangea.gui.chipsToPlayer}
   // var single_player = [pangea.gui.chipsToPlayer]
+  // ** Refactor: Don't think I should use 'in' here... is actionArray an array or object?
+  // Since `in` seems to work, I think it is actually an object
+  // Right, so using `in` is fine, but the parameter shouldn't have 'array' in it's name that is
+  // stupid
   for (var action in actionArray){
     console.log(action)
     if (actionArray.hasOwnProperty(action)){
@@ -109,5 +110,18 @@ pangea.API.chat = function(messages){
   for (var i=0; i< messages.length; i++) {
     chatbox.append(messages[i])
     chatbox.append('<br>')
+  }
+}
+
+pangea.API.setup = function(message){
+  function changeSeats(config){
+    pangea.gui.changeSeats(config)
+  }
+  var handlers = {'changeSeats':changeSeats}
+  for (var key in message){
+    if (message.hasOwnProperty(key)){
+      var handler = handlers[key]
+      handler(message[key])
+    }
   }
 }

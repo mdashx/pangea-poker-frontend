@@ -138,6 +138,20 @@ $('#options-confirm').click(function(){
   $('#options-window').toggleClass('hide')
 })
 
+$('#disconnect').click(function(){
+  $('#disconnect-window').toggleClass('hide')
+})
+
+$('#disconnect-cancel').click(function(){
+  $('#disconnect-window').toggleClass('hide')
+})
+
+$('#disconnect-confirm').click(function(){
+  pangea.ws.close()
+  $('#disconnect-window').toggleClass('hide')
+  $('#options-window').toggleClass('hide')
+})
+
 $('.custom-bet-btn').click(function(){
   function getBetAmount(customVal){
     var percent_re=/\d+%/i

@@ -774,7 +774,7 @@ input[type=checkbox] {
     top:70;
     left:300;
     width:200px;
-    min-height:300px;
+    min-height:320px;
     background:#e4e4e4;
     border-width:5px;
     border-style:solid;
@@ -815,6 +815,74 @@ input[type=checkbox] {
     position:absolute;
     left:107px;
     top:272px;
+}
+
+.options-btn {
+    height:22px;
+    width:80px;
+    line-height:22px;
+    font-size:18px;
+    font-family:Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    text-align:center;
+    background:#737373;
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    border-style:solid;
+    border-color:#000;
+    border-width:1px;
+}
+
+#disconnect {
+    position:absolute;
+    left:20px;
+    top:300px;
+    height:22px;
+    width:160px;
+    line-height:22px;
+    font-size:14px;
+    font-family:Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    text-align:center;
+    background:#3930BE;
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    border-style:solid;
+    border-color:#000;
+    border-width:1px;
+}
+
+#disconnect:hover {
+    background:#ff0000;
+    cursor:hand;
+}
+
+#disconnect-window {
+    position:absolute;
+    top:20;
+    left:-5px;
+    width:200px;
+    min-height:100px;
+    background:#e4e4e4;
+    border-width:5px;
+    border-style:solid;
+    border-color:#ff0000;
+    z-index:50;
+    padding-top:8px;
+}
+
+#disconnect-cancel {
+    position:absolute;
+    left:13px;
+    top:70px
+}
+
+#disconnect-confirm {
+    position:absolute;
+    left:107px;
+    top:70px;
 }
 
 .custom-bet-btn {
