@@ -30,6 +30,7 @@ pangea.init = function(){
 }
 
 pangea.update = function(){
+  pangea.gui.updateSeats()
   for (var seat in pangea.seats){
     pangea.seats[seat].update()
   }

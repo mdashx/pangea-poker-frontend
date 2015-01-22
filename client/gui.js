@@ -342,8 +342,16 @@ pangea.gui.changeSeats = function(config){
   var removeFor2 = [$('#seat-0'), $('#seat-2'), $('#seat-3'), $('#seat-4'), $('#seat-5'), $('#seat-6'), $('#seat-8')]
   var removeFor6 = [$('#seat-3'), $('#seat-4'), $('#seat-5')]
   var configs = {2:removeFor2, 6:removeFor6}
-  var toRemove = configs[config]
-  for (var i=0; i<toRemove.length; i++){
-    $(toRemove[i]).remove()
+  if (Object.keys(configs).indexOf(String(config)) >= 0){
+    var toRemove = configs[config]
+    for (var i=0; i<toRemove.length; i++){
+      $(toRemove[i]).remove()
+    }    
+  }
+}
+
+pangea.gui.updateSeats = function(){
+  if (pangea.game.seats != pangea.seats.length){
+    pangea.gui.changeSeats(pangea.game.seats)
   }
 }

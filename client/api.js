@@ -112,16 +112,3 @@ pangea.API.chat = function(messages){
     chatbox.append('<br>')
   }
 }
-
-pangea.API.setup = function(message){
-  function changeSeats(config){
-    pangea.gui.changeSeats(config)
-  }
-  var handlers = {'changeSeats':changeSeats}
-  for (var key in message){
-    if (message.hasOwnProperty(key)){
-      var handler = handlers[key]
-      handler(message[key])
-    }
-  }
-}

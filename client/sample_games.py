@@ -31,7 +31,7 @@ def muck(seat, clear=[]):
 def bet(seat, bet, clear=[]):
     global pot
     pot = pot + bet
-    msg = {'seats': [{'seat': seat, 'bet':bet, 'action':'<span>Bet<br>' + str(bet) + '</span>'}], 'game':{'pot':[str(pot)]}}
+    msg = {'seats': [{'seat': seat, 'bet':bet, 'action':'<span>Bet<br>' + str(bet) + '</span>'}], 'game':{'pot':[str(pot)], 'tocall':bet}}
     msg['seats'] += clear_actions(clear)
     return msg
     
@@ -45,7 +45,7 @@ def call(seat, bet, clear=[]):
 def _raise(seat, bet, clear=[]):
     global pot
     pot = pot + bet
-    msg = {'seats': [{'seat': seat, 'bet':bet, 'action':'<span>Raise<br>' + str(bet) + '</span>'}], 'game':{'pot':[str(pot)]}}
+    msg = {'seats': [{'seat': seat, 'bet':bet, 'action':'<span>Raise<br>' + str(bet) + '</span>'}], 'game':{'pot':[str(pot)], 'tocall':bet}}
     msg['seats'] += clear_actions(clear)
     return msg
 
@@ -61,7 +61,7 @@ def check(seat, clear=[]):
 chips_in = {'seats':[{'seat':0, 'action':''}, {'seat':1, 'action':''}, {'seat':2, 'action':''},
                 {'seat':3, 'action':''}, {'seat':4, 'action':''}, {'seat':5, 'action':''},
                 {'seat':6, 'action':''}, {'seat':7, 'action':''}, {'seat':8, 'action':''}],
-                'action':{'chipsToPot':0}}    
+                'action':{'chipsToPot':[0,1]}}    
 
 bets1 = [bet(0, 6), fold(1), call(2, 6, [1]), call(3, 6), fold(4), fold(5, [4]), fold(6, [5]), fold(7, [6]), _raise(8, 24, [7]), fold(0), call(2, 24, [0]), fold(3)]
 deal2 = {'deal':{'board':{0:'AH', 1:'2C', 2:'6S'}}}
@@ -72,7 +72,9 @@ deal4 = {'deal':{'board':{4:'JD'}}}
 bets4 = [bet(2, 48), _raise(8, 72), call(2, 72)]
 
 
-game_one = [seats, dealhole]
+setup_game = {'game':{'pot':[0], 'bigblind':3, 'gametype':"NL Hold'em<br>Blinds: 3/6", 'tocall':0}}
+
+game_one = [setup_game, seats, dealhole]
 
 for message in bets1:
     game_one.append(message)

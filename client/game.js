@@ -4,9 +4,9 @@ var pangea = window.pangea
 var WebSocket = window.WebSocket
 
 pangea.game = new Object()
-pangea.game.gametype = "NL Hold'em<br>Blinds: 3/6"
-pangea.game.pot = [0]
-pangea.game.bigblind = 6
+pangea.game.gametype = "Pangea Poker"
+pangea.game.pot = [0]  // List of pots and side pots
+pangea.game.bigblind = 0
 pangea.game.tocall = pangea.game.bigblind
 pangea.game.limit = 0
 pangea.game.myturn = false
@@ -15,6 +15,7 @@ pangea.seats = []
 pangea.dealer = undefined
 pangea.tableOrder = [0,1,2,3,4,5,6,7,8]
 pangea.cards = []
+pangea.game.seats = 9 // 2, 6 and 9 configurations available
 
 pangea.options = {
   'tablefelt':'black',

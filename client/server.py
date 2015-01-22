@@ -9,19 +9,14 @@ from api_example import SampleGameOne
 
 
 # PangeaWebSocket
-myserver = PangeaWebSocket
+# myserver = PangeaWebSocket
 # SampleGameOne
-# myserver = SampleGameOne
+myserver = SampleGameOne
 
 
 server = make_server('', 9000, server_class=WSGIServer,
                      handler_class=WebSocketWSGIRequestHandler,
                      app=WebSocketWSGIApplication(handler_cls=myserver))
-
-
-
-
-
 
 server.initialize_websockets_manager()
 server.serve_forever()
