@@ -226,3 +226,30 @@ The Turn:
 The River:
 
 `{"deal": {"board": {"4": "JD"}}}`
+
+# WebSocket Messages To Listen For
+
+The GUI won't do much without checking with the server first, for instance, instead of letting the player just take a seat, a request is sent to the server.
+
+* Request to join a table:
+
+`{"action":{"join":<seat_num>}}`
+
+`{"action":{"join":1}}`
+
+* First person player makes a bet:
+
+{"action":{"bet":"145"}}
+
+* First person player folds:
+
+`{"action":{"fold":"1"}}`
+
+* First person sends chat:
+
+`{"chat":"This is a chat message"}`
+
+
+
+
+
