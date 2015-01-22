@@ -87,7 +87,7 @@ pangea.Seat.prototype.updateCSS = function(){
 
 pangea.Seat.prototype.sitdown = function(){
   $(this.select.seat).unbind('click')
-  if (pangea.player.sitting == 0){
+  `if (pangea.player.sitting == 0){
     $(this.select.seat).click(function(){
       var seatnum = Number(this.id.split('-')[1])
       pangea.actions.join(seatnum)

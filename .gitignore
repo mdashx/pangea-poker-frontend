@@ -6,4 +6,5 @@ mockup-old/
 *~
 *.pyc
 tmp*
+*_tmp*
 .DS_Store

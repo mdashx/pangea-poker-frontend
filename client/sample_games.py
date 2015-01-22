@@ -61,7 +61,7 @@ def check(seat, clear=[]):
 chips_in = {'seats':[{'seat':0, 'action':''}, {'seat':1, 'action':''}, {'seat':2, 'action':''},
                 {'seat':3, 'action':''}, {'seat':4, 'action':''}, {'seat':5, 'action':''},
                 {'seat':6, 'action':''}, {'seat':7, 'action':''}, {'seat':8, 'action':''}],
-                'action':{'chipsToPot':[0,1]}}    
+                'action':{'chipsToPot':0}}    
 
 bets1 = [bet(0, 6), fold(1), call(2, 6, [1]), call(3, 6), fold(4), fold(5, [4]), fold(6, [5]), fold(7, [6]), _raise(8, 24, [7]), fold(0), call(2, 24, [0]), fold(3)]
 deal2 = {'deal':{'board':{0:'AH', 1:'2C', 2:'6S'}}}
