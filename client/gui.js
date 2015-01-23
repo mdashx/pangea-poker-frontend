@@ -321,7 +321,7 @@ pangea.gui.optionHandlers = {
   'chooseDeck':function(whichDeck){
     var theDecks = {'normal':pangea.deck1, 'fourcolor':pangea.deck2}
     pangea.deck = theDecks[whichDeck]
-    // pangea.gui.refreshImages()
+    pangea.gui.refreshImages()
   } 
 }
 
@@ -330,6 +330,10 @@ pangea.gui.hideSeats = function(){
   if (pangea.options.showSeats == 0){
     $('.player-info').show()
     $('.empty-seat').hide()
+  }
+  if (pangea.options.showSeats == 1){
+    $('.player-info').show()
+    $('.empty-seat').show()
   }
 }
 
